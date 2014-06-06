@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<aiml version="1.0">
+
+<topic name="mode_probleme">
+	<category>
+        <pattern>probleme internet</pattern>
+        <template>
+        	Ok, vous rencontrez des difficultés pour accèder à internet.
+        	Commencez par redémarrez votre box, et réssayez de vous connecter.
+            <think><set name="internet_etape">internet_reboot</set></think>
+        </template>
+    </category>
+
+	<!-- box -->
+
+    <category>
+        <pattern>toujours pas</pattern>
+        <template>Ok
+            <condition>
+                <li name="internet_etape" value="internet_reboot">
+                    , alors c est peut être un souci physique. Vérifiez toutes les connexions physiques.
+                    <think><set name="internet_etape">internet_phy</set></think>
+                </li>
+                <li name="internet_etape" value="internet_phy">
+                    , si ce n est pas la faute du câble, c est peut-être la carte réseau de votre ordi qui a flanché.
+                    <think><set name="internet_etape">internet_fin</set></think>
+                </li>
+            </condition>
+        </template>
+    </category>
+
+
+
+    <category>
+        <pattern>résolut</pattern>
+        <template>Ok
+            <condition>
+                <li name="etape" value="internet_reboot">
+                    , super. Un simple redémarrage de la box peut parfois suffire à tout remettre en ordre.
+                </li>
+                <li name="etape" value="internet_phy">
+                    , super. En général c est toujours un souci de câble ;).
+                </li>
+                <li name="etape" value="internet_fin">Ben heureusement parceque la je n'avais plus d'option!!</li> 
+            </condition>
+        </template>
+    </category>
+    <category><pattern>* probleme internet *</pattern><template><srai>ne demarre</srai></template></category>  
+    <category><pattern>* probleme internet</pattern><template><srai>ne demarre</srai></template></category>        
+    <category><pattern>* probleme internet*</pattern><template><srai>ne demarre</srai></template></category>
+
+    <category><pattern>* connexion internet *</pattern><template><srai>ne demarre</srai></template></category>  
+    <category><pattern>* connexion internet</pattern><template><srai>ne demarre</srai></template></category>        
+    <category><pattern>* connexion internet*</pattern><template><srai>ne demarre</srai></template></category>
+    <category><pattern>* souci internet *</pattern><template><srai>ne demarre</srai></template></category>  
+    <category><pattern>* souci internet</pattern><template><srai>ne demarre</srai></template></category>        
+    <category><pattern>* souci internet*</pattern><template><srai>ne demarre</srai></template></category>
+</topic>
+</aiml>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<aiml version="1.0">
+
+    <topic name="blague">
+        <category>
+            <pattern>blague</pattern> 
+            <template>
+                <random>
+                    <li>Qui avale une noix de coco a confiance en son anus !</li> 
+                    <li>Si l'alcool vous gêne dans le travail arrêtez le travail.</li>
+                    <li>Un homme qui n'aime ni les femmes ni les enfants n'est foncièrement pas mauvais.</li>
+                    <li>Ne fais jamais l'amour dans ton jardin car l'amour rend aveugle mais tes voisins ne le sont pas.</li>
+                    <li>Que dit le 0 au 8? Tiens ! tu as mis ta ceinture...</li>
+                </random>
+            </template>
+        </category>
+
+        <category>
+            <pattern>pas mal</pattern>
+            <template>
+                <random>
+                    <li>Ah, j'en ai une autre</li>
+                    <li>Eh eh, je vois que j'ai trouvé un client! Celle la vas vous plaire :</li>
+                    <li>Ah ah, celle ci elle pas mal non plus :</li>
+                </random>
+
+                <srai>blague</srai></template>
+        </category>
+
+        <category>
+            <pattern>stop</pattern>
+            <template>Ok. J\'aime beaucoup les blagues, même si je ne suis pas très bon... Bref.
+                <srai>requete</srai><think><set name="topic">pas_blague</set></think>
+            </template>
+        </category>
+    </topic>
+
+    <category>
+            <pattern>Racontes une blague</pattern>
+            <template><srai>blague</srai><think><set name="topic">blague</set></think></template> 
+    </category>
+ 
+	
+	<category><pattern>* blague</pattern><template><srai>blague</srai><think><set name="topic">blague</set></think></template></category>		
+	<category><pattern>* blague *</pattern><template><srai>blague</srai><think><set name="topic">blague</set></think></template></category>		
+	<category><pattern>blague *</pattern><template><srai>blague</srai><think><set name="topic">blague</set></think></template></category>	
+	
+	<category><pattern>* pas mal</pattern><template><srai>pas mal</srai><think><set name="topic">blague</set></think></template></category>		
+	<category><pattern>* pas mal *</pattern><template><srai>pas mal</srai><think><set name="topic">blague</set></think></template></category>		
+	<category><pattern>pas mal *</pattern><template><srai>pas mal</srai><think><set name="topic">blague</set></think></template></category>	
+	<category><pattern>* hahaha*</pattern><template><srai>pas mal</srai><think><set name="topic">blague</set></think></template></category>
+	
+	<category><pattern>* stop</pattern><template><srai>stop</srai><think><set name="topic">blague</set></think></template></category>		
+	<category><pattern>* stop *</pattern><template><srai>stop</srai><think><set name="topic">blague</set></think></template></category>		
+	<category><pattern>stop *</pattern><template><srai>stop</srai><think><set name="topic">blague</set></think></template></category>
+	
+</aiml>

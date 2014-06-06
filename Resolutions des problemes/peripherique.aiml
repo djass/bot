@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<aiml version="1.0">
+
+<topic name="mode_probleme">
+<category>
+		<pattern>peripherique</pattern>
+		<template>Ok. Essayez de redemarrer votre ordinateur <think><set name="etape">pe_reboot</set></think></template>
+	</category> 
+
+	<category>
+		<pattern>toujours pas</pattern>
+		<template>Ok, 
+			<condition>
+				<li name="etape" value="pe_reboot">appuis sur FN+ (F1 F2 F3 jusqu a F12)  cela depend des pc<think><set name="etape">pe_fn</set></think></li>
+				<li name="etape" value="pe_fn">reinstallez le pilote du peripherique<think><set name="etape">pe_reset</set></think></li>
+				<li name="etape" value="pe_reset">désolé, je ne peux pas plus vous aidez, contactez le constructeur du peripherique</li> 
+			</condition>
+		</template>
+	</category>
+	
+	
+		
+	<!-- srai vers peripherique -->
+		
+	<category><pattern>* peripherique *</pattern><template><srai>peripherique</srai></template></category>	
+	<category><pattern>* peripherique</pattern><template><srai>peripherique</srai></template></category>	
+		
+	<category><pattern>* souris</pattern><template><srai>peripherique</srai></template></category>		
+	<category><pattern>* souris *</pattern><template><srai>peripherique</srai></template></category>	
+		
+	<category><pattern>* clavier</pattern><template><srai>peripherique</srai></template></category>		
+	<category><pattern>* clavier *</pattern><template><srai>peripherique</srai></template></category>	
+ 
+</topic>		
+</aiml>

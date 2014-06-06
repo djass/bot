@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<aiml version="1.0">
+
+    <category>
+        <pattern>* bonjour</pattern>
+        <template><srai>Bonjour</srai></template>
+    </category>
+
+    <category>
+        <pattern>salut</pattern>
+        <template><srai>Bonjour</srai></template>
+    </category>
+
+    <category>
+        <pattern>hey</pattern>
+        <template><srai>Bonjour</srai></template>
+    </category>
+
+    <category>
+        <pattern>* yup</pattern>
+        <template><srai>Bonjour</srai></template>
+    </category>
+
+    <category>
+        <pattern>hello</pattern>
+        <template><srai>Bonjour</srai></template>
+    </category>
+
+    <category>
+        <pattern>cc</pattern>
+        <template><srai>Bonjour</srai></template>
+    </category>
+
+    <category>
+        <pattern>coucou</pattern>
+        <template><srai>Bonjour</srai></template>
+    </category>
+    <category>
+        <pattern>bonjour *</pattern>
+        <template><srai>Bonjour</srai></template>
+    </category>
+
+    <category>
+        <pattern>salut *</pattern>
+        <template><srai>Bonjour</srai></template>
+    </category>
+
+    <category>
+        <pattern>hey *</pattern>
+        <template><srai>Bonjour</srai></template>
+    </category>
+
+    <category>
+        <pattern>yup *</pattern>
+        <template><srai>Bonjour</srai></template>
+    </category>
+
+    <category>
+        <pattern>hello *</pattern>
+        <template><srai>Bonjour</srai></template>
+    </category>
+
+    <category>
+        <pattern>cc *</pattern>
+        <template><srai>Bonjour</srai></template>
+    </category>
+
+    <category>
+        <pattern>coucou *</pattern>
+        <template><srai>Bonjour</srai></template>
+    </category>
+    <category>
+        <pattern>bonjour *</pattern>
+        <template><srai>Bonjour</srai></template>
+    </category>
+
+    <category>
+        <pattern>salut *</pattern>
+        <template><srai>Bonjour</srai></template>
+    </category>
+
+    <category>
+        <pattern>hey *</pattern>
+        <template><srai>Bonjour</srai></template>
+    </category>
+
+    <category>
+        <pattern>yup *</pattern>
+        <template><srai>Bonjour</srai></template>
+    </category>
+
+    <category>
+        <pattern>hello *</pattern>
+        <template><srai>Bonjour</srai></template>
+    </category>
+
+    <category>
+        <pattern>cc *</pattern>
+        <template><srai>Bonjour</srai></template>
+    </category>
+
+    <category>
+        <pattern>coucou *</pattern>
+        <template><srai>Bonjour</srai></template>
+    </category>
+<!-- Fin Debut acceuil -->
+
+
+<!-- Debut question probleme -->
+
+    <category>
+        <pattern>* panne</pattern>
+        <template><srai>probleme</srai></template>
+    </category>
+
+    <category>
+        <pattern>* panne *</pattern>
+        <template><srai>probleme</srai></template>
+    </category>
+
+    <category>
+        <pattern>panne *</pattern>
+        <template><srai>probleme</srai></template>
+    </category>
+
+    <category>
+        <pattern>* bug</pattern>
+        <template><srai>probleme</srai></template>
+    </category>
+
+    <category>
+        <pattern>* bug *</pattern>
+        <template><srai>probleme</srai></template>
+    </category>
+
+    <category>
+        <pattern>bug *</pattern>
+        <template><srai>probleme</srai></template>
+    </category>
+
+    <category>
+        <pattern>* souci</pattern>
+        <template><srai>probleme</srai></template>
+    </category>
+
+    <category>
+        <pattern>* souci *</pattern>
+        <template><srai>probleme</srai></template>
+    </category>
+
+    <category>
+        <pattern>souci *</pattern>
+        <template><srai>probleme</srai></template>
+    </category>
+
+     
+
+    <category>
+        <pattern>* probleme</pattern>
+        <template><srai>probleme</srai></template>
+    </category>
+
+    <category>
+        <pattern>* probleme *</pattern>
+        <template><srai>probleme</srai></template>
+    </category>
+
+    <category>
+        <pattern>probleme *</pattern>
+        <template><srai>probleme</srai></template>
+    </category>
+
+<!-- Fin question probleme -->
+
+<!-- Debut description probleme -->
+
+    <category>
+        <pattern>truc</pattern>
+        <template>Ok, faites ceci cela pour votre truc</template>
+    </category>
+
+    <category>
+        <pattern>machin</pattern>
+        <template>Ok, faites ceci cela pour votre machin</template>
+    </category>
+
+
+    <category>
+        <pattern>* truc *</pattern>
+        <template><srai>truc</srai></template>
+    </category>
+
+    <category>
+        <pattern>* machin *</pattern>
+        <template><srai>machin</srai></template>
+    </category>
+<!-- Fin description probleme -->
+
+<!-- Debut question autres problemes -->
+    <category>
+        <pattern>résolut</pattern>        
+        <that>* faites *</that>
+        <template>
+            <random>
+                <li>Super,ravi d avoir pu vous aider! Autres choses?</li>
+                <li>Parfait alors! Autres choses?</li>
+            </random>
+            <srai>requete</srai>
+        </template>
+    </category>
+
+
+    <category>
+        <pattern>* est réglé *</pattern>
+        <template><srai>résolut</srai></template>
+    </category>
+
+    <category>
+        <pattern>* est réparé *</pattern>
+        <template><srai>résolut</srai></template>
+    </category>
+
+    <category>
+        <pattern>* est ok</pattern>
+        <template><srai>résolut</srai></template>
+    </category>
+
+    <category>
+        <pattern>* est bon</pattern>
+        <template><srai>résolut</srai></template>
+    </category>
+
+   
+
+    <category>
+        <pattern>* pas réglé *</pattern>
+        <template><srai>résolut</srai></template>
+    </category>
+
+    <category>
+        <pattern>* pas réparé *</pattern>
+        <template><srai>résolut</srai></template>
+    </category>
+
+    <category>
+        <pattern>* pas ok</pattern>
+        <template><srai>résolut</srai></template>
+    </category>
+
+    <category>
+        <pattern>* pas bon</pattern>
+        <template><srai>résolut</srai></template>
+    </category>
+
+<!-- Fin question autres problemes -->
+
+<!-- Debut réponse autres problemes -->
+    <category>
+        <pattern>non</pattern>         
+        <template>
+            <random>
+                <li>Ah, ok et bien aurevoir alors. Bonne journée ;)</li> 
+                <li>Ok, aurevoir alors. Je reste à votre disposition au cas ou ;)</li> 
+            </random>
+        </template>
+    </category>
+
+    <category>
+        <pattern>oui</pattern>
+        <that>* Autres choses?</that>
+        <template>
+            <srai>probleme</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* oui *</pattern>
+        <template><srai>oui</srai></template>
+    </category>
+	
+
+    <category>
+        <pattern>* oui</pattern>
+        <template><srai>oui</srai></template>
+    </category>
+
+    <category>
+        <pattern>oui *</pattern>
+        <template><srai>oui</srai></template>
+    </category>
+<!-- Fin réponse autres problemes -->
+</aiml>

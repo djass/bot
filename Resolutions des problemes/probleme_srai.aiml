@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<aiml version="1.0">
+
+     <category>
+        <pattern>probleme</pattern> 
+        <template>
+            <random>
+                <li>Oui, quel est-il?</li>
+                <li>Allez y, dites moi.</li>
+                <li>Je vous ecoute.</li>
+            </random>
+            <think><set name="topic">mode_probleme</set></think>
+        </template> 
+    </category>
+
+    <category>
+        <pattern>ce sera tout</pattern> 
+        <template> 
+            Ok, on je considere que votre probleme est réglé.
+            <think><set name="topic">no_pb</set></think>
+        </template> 
+    </category>
+
+
+    <category>
+        <pattern>ok</pattern>
+            <random>
+                <li>Je suis la en cas de probleme</li>
+                <li>Tenez moi au courant en cas de probleme</li>
+                <li>Si vous avez un probleme, vous savez ou me trouver</li>
+            </random>
+    </category>
+
+    <topic name="mode_probleme">
+        <category>
+            <pattern>ok</pattern>
+                <random>
+                    <li>Dites moi quand c\'est bon</li>
+                    <li>Je penses que cela devrai aller...</li>
+                    <li>J\'espere que ça suffira</li>
+                </random>
+        </category>
+
+        <category>
+            <pattern>ce sera tout</pattern> 
+            <template> 
+                Ok, on je considere que votre probleme est réglé.
+                <think><set name="topic">no_pb</set></think>
+            </template> 
+
+
+            <category><pattern>* tout</pattern><template><srai>ce sera tout</srai></template></category> 
+        </category>
+    </topic>
+    <category>  <pattern>probleme *</pattern>  <template><srai>probleme</srai></template>   </category>
+
+    <category>     <pattern>probleme *</pattern>  <template><srai>probleme</srai></template>   </category>
+
+    <category>       <pattern>* probleme *</pattern> <template><srai>probleme</srai></template>   </category>
+
+    <category>       <pattern>* souci</pattern>   <template><srai>probleme</srai></template>   </category> 
+
+    <category>       <pattern>souci *</pattern> <template><srai>probleme</srai></template>  </category> 
+
+    <category>    <pattern>souci</pattern>    <template><srai>probleme</srai></template>   </category> 
+
+    <category><pattern>* toujours pas</pattern><template><srai>toujours pas</srai></template></category>        
+    <category><pattern>* toujours pas *</pattern><template><srai>toujours pas</srai></template></category>      
+    <category><pattern>toujours pas *</pattern><template><srai>toujours pas</srai></template></category>
+    <category><pattern>* fait</pattern><template><srai>toujours pas</srai></template></category>        
+    <category><pattern>* fait *</pattern><template><srai>toujours pas</srai></template></category>      
+    <category><pattern>fait *</pattern><template><srai>toujours pas</srai></template></category>
+    <category><pattern>* faire</pattern><template><srai>toujours pas</srai></template></category>       
+    <category><pattern>* faire *</pattern><template><srai>toujours pas</srai></template></category>     
+    <category><pattern>faire *</pattern><template><srai>toujours pas</srai></template></category>
+
+
+</aiml>

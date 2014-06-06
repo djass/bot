@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<aiml version="1.0"> 
+<topic name="mode_probleme">
+    <category>          
+        <pattern>*</pattern>  
+        <template>
+            <think><set name="topic">mode_acceuil</set></think>
+            <random><li>OK. Je vais me ressourcer...</li>
+            <li>Hum une minute svp...</li></random> 
+            <script type="text/javascript"> 
+        $( document ).ready(function() { 
+            var qr = $('div.usersay').text();
+            $.ajax({
+                type: "POST",
+                url: "search.php",
+                data: { k: qr }
+            }).done(function(msg) {
+               $('div.botsay').append('Ah ca y est! Juste un instant ...'); 
+               $('div.botsay').load('http://localhost/Program-O-master/gui/jquery/goto.php?page='+msg).text();
+            });
+        });
+        </script>
+        </template>  
+    </category>
+ 
+</topic>
+</aiml> 

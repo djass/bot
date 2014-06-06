@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<aiml version="1.0"> 
+<!--author: KRIT-->
+<!--licence: Standard-->
+<!--created with: GaitoBot AIML Editor V2.1.0.34-->
+   
+     <category>
+        <pattern>* est * heure *</pattern>
+        <template><srai>heure</srai></template>
+    </category>
+
+     <category>
+        <pattern>quelle heure est il</pattern>
+        <template><srai>heure</srai></template>
+    </category>
+
+     <category>
+        <pattern>il est quelle heure</pattern>
+        <template><srai>heure</srai></template>
+    </category>
+
+     <category>
+        <pattern>tu as l\'heure</pattern>
+        <template><srai>heure</srai></template>
+    </category>
+
+     <category>
+        <pattern>as tu l\'heure</pattern>
+        <template><srai>heure</srai></template>
+    </category>
+
+     <category>
+        <pattern>on est quel jour</pattern>
+        <template><srai>date</srai></template>
+    </category>
+
+    <category>
+        <pattern>* heure * est *</pattern>
+        <template><srai>heure</srai></template>
+    </category> 
+
+    <category>
+        <pattern>* jour * aujourdhui *</pattern>
+        <template><srai>heure</srai></template>
+    </category>
+
+    <category>
+        <pattern>* aujourdhui * jour *</pattern>
+        <template><srai>heure</srai></template>
+    </category> 
+    <category>
+        <pattern>* date * aujourdhui *</pattern>
+        <template><srai>heure</srai></template>
+    </category>
+
+    <category>
+        <pattern>* aujourdhui * date *</pattern>
+        <template><srai>heure</srai></template>
+    </category> 
+
+
+    <category><pattern>* date *</pattern><template><srai>date</srai></template></category>
+    <category><pattern>* date</pattern><template><srai>date</srai></template></category>
+    <category><pattern>date *</pattern><template><srai>date</srai></template></category>
+    <category><pattern>date</pattern><template><srai>date</srai></template></category>
+
+    <category><pattern>* heure *</pattern><template><srai>heure</srai></template></category>
+    <category><pattern>* heure</pattern><template><srai>heure</srai></template></category>
+    <category><pattern>heure *</pattern><template><srai>heure</srai></template></category>
+    <category><pattern>heure</pattern><template><srai>heure</srai></template></category>
+<category> 
+
+<pattern>heure</pattern> 
+    <template> 
+        <random>
+            <li>D'après ma montre, il est </li>
+            <li>La il est </li>
+            <li>Oui, il est exactement </li>
+        </random>
+        <script type="text/javascript"> 
+        $( document ).ready(function() { 
+            var now = new Date();
+            var heure   = now.getHours();
+            var minute  = now.getMinutes(); 
+            $('div.botsay').append(heure+" heure "+minute+".");
+        });
+        </script>
+    </template>
+</category> 
+
+
+
+<category> 
+<pattern>date</pattern> 
+    <template> 
+        <random>
+            <li>D'après mon calendrier, on est le </li>
+            <li>Aujourdhui on est le </li>
+            <li>Et bien, on est le </li>
+        </random>
+        <script type="text/javascript"> 
+        $( document ).ready(function() {
+            var now = new Date();
+            var annee   = now.getFullYear();
+            var mois    = now.getMonth() + 1 ; 
+            var jour    = now.getDate();
+            var m = "?";
+
+            switch (mois) {
+                case 1:
+                     m = "Janvier";
+                     break;
+                case 2:
+                     m = "Février";
+                     break;
+                case 3:
+                     m = "Mars";
+                     break;
+                case 4:
+                     m = "Avril";
+                     break;
+                case 5:
+                     m = "Mai";
+                     break;
+                case 6:
+                     m = "Juin";
+                     break;
+                case 7:
+                     m = "Juillet";
+                     break;
+                case 8:
+                     m = "Août";
+                     break;
+                case 9:
+                     m = "Septembre";
+                     break;
+                case 10:
+                     m = "Octobre";
+                     break;
+                case 11: 
+                     m = "Novembre";
+                     break;
+                case 12:
+                     m = "Decembre";
+                     break;
+            }
+            $('div.botsay').append(jour+ " "+m+ " "+annee+".");
+        });
+        </script>
+    </template>
+</category>  
+</aiml>

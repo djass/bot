@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<aiml version="1.0">
+
+<topic name="mode_probleme">
+<category>
+		<pattern>ne demarre</pattern>
+		<template>Ok. A quel moment constatez-vous la panne?
+		<think><set name="etape">pe_reboot</set></think></template>
+	</category> 
+
+	<category>
+		<pattern>ne s affiche</pattern>
+		<template>Ok, 
+			<condition>
+				<li name="etape" value="pe_reboot">appuis sur FN+ (F1 F2 F3 jusqu a F12)  cela depend des pc<think><set name="etape">pe_fn</set></think></li>
+				<li name="etape" value="pe_fn">reinstallez le pilote du peripherique<think><set name="etape">pe_reset</set></think></li>
+				<li name="etape" value="pe_reset">désolé, je ne peux pas plus vous aidez, contactez le constructeur du peripherique</li> 
+			</condition>
+		</template>
+	</category>
+	
+	
+		
+	<!-- srai vers peripherique -->
+		
+	<category><pattern>* ne démarre *</pattern><template><srai>ne demarre</srai></template></category>	
+	<category><pattern>* ne démarre</pattern><template><srai>ne demarre</srai></template></category>		
+	<category><pattern>* ne démarre*</pattern><template><srai>ne demarre</srai></template></category>		
+		
+
+		
+	<!-- srai vers toujours pas -->	
+			
+		
+	<category><pattern>* ne s affiche</pattern><template><srai>ne s affiche</srai></template></category>		
+	<category><pattern>* ne s affiche *</pattern><template><srai>ne s affiche</srai></template></category>		
+	<category><pattern>ne s affiche *</pattern><template><srai>ne s affiche</srai></template></category>
+
+	<category><pattern>* toujours pas</pattern><template><srai>ne s affiche</srai></template></category>		
+	<category><pattern>* toujours pas *</pattern><template><srai>ne s affiche</srai></template></category>		
+	<category><pattern>toujours pas *</pattern><template><srai>ne s affiche</srai></template></category>
+	<category><pattern>* fait</pattern><template><srai>ne s affiche</srai></template></category>		
+	<category><pattern>* fait *</pattern><template><srai>ne s affiche</srai></template></category>		
+	<category><pattern>fait *</pattern><template><srai>ne s affiche</srai></template></category>
+	<category><pattern>* faire</pattern><template><srai>ne s affiche</srai></template></category>		
+	<category><pattern>* faire *</pattern><template><srai>ne s affiche</srai></template></category>		
+	<category><pattern>faire *</pattern><template><srai>ne s affiche</srai></template></category>	
+</topic>
+</aiml>

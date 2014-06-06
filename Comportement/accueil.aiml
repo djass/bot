@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<aiml version="1.0">
+
+
+<!-- Debut manque de precision -->
+<category>
+    <pattern>*</pattern> 
+    <template>
+        <random>
+            <li>J'avoue que la je ne vous suis pas du tout la ...</li> 
+            <li>Je ne vois pas très bien ou vous voulez en venir ...</li> 
+        </random>
+    </template>
+</category>
+
+
+<!-- fin manque de precision -->
+
+<!-- Debut acceuil -->    
+    <category>
+        <pattern>Bonjour</pattern> 
+        <template>                     
+            <condition>                 
+                <li name="bonjour" value="bonjour_dit">
+                    Re-<think><set name="bonjour">bonjour_redit</set></think>                     
+                </li>             
+            </condition>
+            Bonjour! <think><set name="bonjour">bonjour_dit</set></think>
+            <srai>requete</srai>
+        </template>
+    </category>
+
+
+    <category>
+        <pattern>*bonjour*</pattern> 
+        <template>
+            <random>
+            <li>Ah ah, très drole... dites moi donc</li>
+            <li>Et on allais droit au but? :)</li>
+            <li>Arretons de tourner autour du pot...</li>
+            </random>
+        </template> 
+    </category>
+
+    <category>
+        <pattern>requete</pattern> 
+        <template>
+            <random>
+            <li>Que puis je faire pour vous cher ami?</li>
+            <li>Alors, dites moi cher ami?</li>
+            <li>Dites moi ce qu'il vous faut cher ami.</li>
+            </random>
+        </template> 
+    </category>
+
+    <category>        
+        <pattern>rien</pattern> 
+        <that>*cher ami*</that> 
+        <template>Ah, ok. Et donc pourquoi être venu me parler?</template> 
+    </category> 
+
+    <category>        
+        <pattern>aide</pattern> 
+        <that>*cher ami*</that> 
+        <template>Ah, et bien, je suis la pour vous aider, que se passe t-il?</template> 
+    </category>
+ 
+    
+
+    <category>        
+        <pattern>Ennuie</pattern> 
+        <that>*pourquoi être venu me parler*</that> 
+        <template>Ok, si vous voulez j\'ai une blague qui vas vous faire rigoler</template> 
+    </category>
+
+    <category>        
+        <pattern>Aucune idée</pattern> 
+        <that>*pourquoi être venu me parler*</that> 
+        <template>Ok, et bien puisque vous ne savez pas. J\'ai deux ou trois blagues qui pourraient vous faire rigoler.</template> 
+    </category>
+
+    <category>        
+        <pattern>evaluer vos connaissances</pattern> 
+        <that>*pourquoi être venu me parler*</that> 
+        <template>D'accord, je vois. Sentez vous libre de me dire ce qui vous chante.</template> 
+    </category>
+
+    <category>
+        <pattern>Ok</pattern> 
+        <template>Je ferai de mon mieu. Ne soyez pas trop dur avec moi!</template>
+        <that>*qui vous chante*</that>
+    </category>
+
+    <category>        
+        <pattern>allez y</pattern> 
+        <that>*vous faire rigoler*</that> 
+        <template><srai>blague</srai><think><set name="topic">blague</set></think></template> 
+    </category>
+
+    <category>        
+        <pattern>pas de blague</pattern> 
+        <that>*vous faire rigoler*</that> 
+        <template><srai>requete</srai><think><set name="topic">pas_blague</set></think></template> 
+    </category>
+
+    <category>
+        <pattern>merci</pattern> 
+        <template>
+            <random>
+                <li>De rien, et au plaisir!</li>
+                <li>Je vous en pris ;) </li>
+                <li>Il n'y a vraimment pas de quoi</li>
+            </random>
+            Autres choses? <srai>requete</srai>
+        </template> 
+    </category>
+
+     <category>
+        <pattern>au revoir</pattern> 
+        <template>
+            <random>
+                <li>Bye!</li>
+                <li>Aurevoir!</li>
+                <li>A bientôt!</li>
+            </random>
+        </template> 
+    </category>
+
+    <category><pattern>* merci</pattern><template><srai>merci</srai></template></category>		
+	<category><pattern>* merci *</pattern><template><srai>merci</srai></template></category>		
+	<category><pattern>merci *</pattern><template><srai>merci</srai></template></category>
+
+    <category>
+        <pattern>ah bon</pattern> 
+        <template>Oui oui
+        </template> 
+    </category>
+
+    <category>
+        <pattern>ça vas bien?</pattern>
+        <template>ça va merci, et vous ?</template>
+    </category>
+
+    <category>
+        <pattern>ça va</pattern>
+        <that>ça va merci*</that>
+        <template>Super :) <srai>requete</srai></template>
+    </category>
+
+    <category>
+        <pattern>*est*faux</pattern>
+        <template>Ah navré c est ce que je connais...Vous pouvais vous réferez à un humain si vous voulez.</template>
+    </category> 
+
+     <category>
+        <pattern>ok</pattern>
+        <template>
+            <random>
+                <li>Je reste à votre disposition</li>
+                <li>Je suis la en cas de souci</li>
+                <li>N\'hésitez pas si vous avez des problemes.</li>
+            </random>
+        </template>
+    </category> 
+</aiml>
