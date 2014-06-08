@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <aiml version="1.0">
 
-     <category>
-        <pattern>probleme</pattern> 
-        <template>
-            <random>
-                <li>Oui, quel est-il?</li>
-                <li>Allez y, dites moi.</li>
-                <li>Je vous ecoute.</li>
-            </random>
-            <think><set name="topic">mode_probleme</set></think>
-        </template> 
-    </category>
+     
 
     <category>
         <pattern>ce sera tout</pattern> 

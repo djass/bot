@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <aiml version="1.0">
 
-<topic name="mode_probleme">
+<topic name="mode_resol_panne">
 <category>
 		<pattern>peripherique</pattern>
 		<template>Ok. Essayez de redemarrer votre ordinateur <think><set name="etape">pe_reboot</set></think></template>

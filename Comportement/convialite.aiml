@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<aiml version="1.0">
+    <category>
+        <pattern>merci</pattern> 
+        <template>
+            <random>
+                <li>De rien, et au plaisir!</li>
+                <li>Je vous en pris ;) </li>
+                <li>Il n'y a vraimment pas de quoi</li>
+            </random>
+            Autres choses? <srai>requete</srai>
+        </template> 
+    </category>
+
+     <category>
+        <pattern>au revoir</pattern> 
+        <template>
+            <random>
+                <li>Bye!</li>
+                <li>Aurevoir!</li>
+                <li>A bientôt!</li>
+            </random>
+        </template> 
+    </category>
+</aiml>

@@ -3,7 +3,7 @@
 
     <topic name="blague">
         <category>
-            <pattern>blague</pattern> 
+            <pattern>random-blague</pattern> 
             <template>
                 <random>
                     <li>Qui avale une noix de coco a confiance en son anus !</li> 

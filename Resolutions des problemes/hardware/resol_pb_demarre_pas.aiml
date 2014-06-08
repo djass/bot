@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <aiml version="1.0">
 
-<topic name="mode_probleme">
+<topic name="mode_resol_panne">
 <category>
 		<pattern>ne demarre</pattern>
 		<template>Ok. A quel moment constatez-vous la panne?

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<aiml version="1.0"> 
+
+    <topic name="mode_resol_panne">
+        <category>          
+            <pattern>*</pattern>  
+            <template>
+                <random>
+                    <li>Je n'ai jamais rencontré ce probleme au paravant, je me ressource sur internet...</li>
+                    <li>Hum une minute je me ressource sur internet...</li>
+                </random> 
+                <script type="text/javascript"> 
+                    $( document ).ready(function() { 
+                        console.log("Checking for some url ...");
+                        var q_real = $('div.usersay').text();
+                        var qr = $('div.usersay').text().replace(' ','+');
+                        $('div.botsay').append('Ah ca y est! Juste un instant ...'); 
+                        $.ajax({
+                            type: "POST",
+                            url: "search.php",
+                            data: { k: qr }
+                        }).done(function(url) { 
+
+                            console.log("Url founded : "+url); 
+                            console.log("Getting data ...");
+                            $('div.botsay').load('http://localhost/Program-O-master/gui/jquery/save_response.php?v='+qr+'|'+url).text(); 
+                            console.log("Data saved.");    
+                            /*$('div.statusbot').hide(1000);*/
+
+                            
+                            /*window.setTimeout( function(){console.log("Second asking ...");$("input#say").val("panne auto");$('form').submit(); }, 2000 );
+
+                            window.setTimeout( function(){console.log("Asking for "+q_real);$("input#say").val(q_real);$('form').submit(); }, 5000 );
+                            */
+
+                            console.log("End.");
+
+                        });
+                    });
+                </script>
+            </template>  
+        </category>
+
+        <category>
+            <pattern>panne</pattern>
+            <template>
+                <think><set name="topic">mode_attente</set></think>
+                <srai>panne</srai>
+            </template>
+        </category>   
+
+
+        <category>
+            <pattern>résolut</pattern>
+            <template>                
+                <think><set name="topic">mode_attente</set></think>
+                Super 
+            </template>
+        </category>
+
+
+
+    <category>
+        <pattern>quit</pattern> 
+        <template> 
+            <think><set name="topic">mode_resol_attente</set></think>
+        </template> 
+    </category>
+    </topic>
+
+</aiml> 

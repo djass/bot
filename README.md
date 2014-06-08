@@ -1,4 +1,4 @@
-ATTENTION 
+ATTENTION BIEN LIRE CETTE NOTICE
 ====================================
 
 INSTALLATION
