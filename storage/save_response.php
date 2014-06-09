@@ -1,5 +1,5 @@
 <?php 
-	ini_set('display_errors', 1);
+	//ini_set('display_errors', 1);
 
 	include 'simple_html_dom.php';
 
@@ -27,17 +27,17 @@
 		
 		$aiml = array();
 
-		$template_still_not =  null;
-	    $template_init = null;
-	    $template_close = null;
+		$template_still_not =  "";
+	    $template_init = "";
+	    $template_close = "";
 
 		foreach ($procedure as $key => $value) {
 
 			if(array_key_exists($key+1, $procedure)) $next_key = $key+1; else $next_key = -1;
 
 			if($key == 0){				
-				$template_init = 'Pour résoudre votre souci, vous devriez '.strtolower($value['title']).'.<br/><br/>
-				  Pour ce se faire la procedure a suivre est la suivante:<br/>'.nettoyage(addslashes($value['desc'])).'
+				if(!is_null($value['title']))$template_init = 'Pour résoudre votre souci, vous devriez '.strtolower($value['title']).'.<br/><br/>Pour ce se faire la procedure a suivre est la suivante:<br/>';
+				$template_init .= nettoyage(addslashes($value['desc'])).'
 				<br/><br/>Dites moi ci cela résout votre probleme.<think><set name="'.urlencode($question_clean).'">'.$next_key.'</set></think>';
 			}
 			else{ 
@@ -128,10 +128,11 @@
 	$procedure = get_procedure_from_microsoft($url);
 	//echo "<pre>";var_dump($procedure);echo "</pre>";
 	//echo "(".$question['clair'].") ";
-	if(empty($procedure))
-		echo "Je n'ai rien trouvé. Pouvez vous reformuler votre probleme s'il vous plaît?";
-	else
-		echo "J'ai terminé mes petites recherches :)";
-	save_procedure_in_aiml_form($question,$procedure);
+	if(empty($procedure)){
+			echo "Je n'ai rien trouvé. Pouvez vous reformuler votre probleme s'il vous plaît?";}
+	else{
+			echo "J'ai terminé mes petites recherches :)";
+			save_procedure_in_aiml_form($question,$procedure);
+	}
 	
 ?>
