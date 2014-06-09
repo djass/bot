@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <aiml version="1.0"> 
 
+    <category>
+        <pattern>panne</pattern> 
+        <template>
+            <random>
+                <li>Oui, quel est-il?</li>
+                <li>Allez y, dites moi.</li>
+                <li>Je vous ecoute.</li>
+            </random>
+            <think><set name="topic">mode_resol_panne</set></think>
+        </template> 
+    </category>
+
     <topic name="mode_resol_panne">
         <category>          
             <pattern>*</pattern>  
             <template>
                 <random>
-                    <li>Je ne sais pas, je regarde sur internet.</li>
-                    <li>Hum une minute, je consulte google.</li>
+                    <li>Ok, je s'est la 1ere fois que je suis confronté à ce type de problème. Je vais rapidement voir sur internet si je peux vous aide...</li>
+                    <li>Je n'ai jamais recontré ce genre de problème, juste une minute, je vais demander à mon amis google...</li>
                 </random> 
                 <script type="text/javascript"> 
                     $( document ).ready(function() { 
@@ -49,23 +61,32 @@
             </template>
         </category>   
 
-
         <category>
             <pattern>résolut</pattern>
             <template>                
                 <think><set name="topic">mode_attente</set></think>
-                Super 
+                Ravi d avoir pu vous aider. ;) 
             </template>
         </category>
 
+        <category>
+            <pattern>quit</pattern> 
+            <template> 
+                <think><set name="topic">mode_resol_attente</set></think>
+            </template> 
+        </category> 
 
-
-    <category>
-        <pattern>quit</pattern> 
-        <template> 
-            <think><set name="topic">mode_resol_attente</set></think>
-        </template> 
-    </category>
+        <category><pattern>* c est réglé *</pattern>  <template><srai>résolut</srai></template></category>
+        <category><pattern>* c est réparé *</pattern>  <template><srai>résolut</srai></template></category>
+        <category><pattern>* c est ok</pattern><template><srai>résolut</srai></template></category>
+        <category><pattern>* c est bon</pattern><template><srai>résolut</srai></template></category>
+        <category><pattern>* pas *</pattern><template><srai>toujours pas</srai></template></category>
+        <category><pattern>* pas</pattern><template><srai>toujours pas</srai></template></category>
+        <category><pattern>pas *</pattern><template><srai>toujours pas</srai></template></category>
+        <category><pattern>* merci *</pattern><template><srai>merci</srai></template></category>
+        <category><pattern>merci *</pattern><template><srai>merci</srai></template></category>
+        <category><pattern>* merci</pattern><template><srai>merci</srai></template></category>
+        <category><pattern>merci</pattern><template><srai>merci</srai></template></category>
     </topic>
 
 </aiml> 

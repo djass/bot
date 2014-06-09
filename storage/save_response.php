@@ -1,8 +1,20 @@
 <?php 
-	//ini_set('display_errors', 1);
+	ini_set('display_errors', 1);
 
 	include 'simple_html_dom.php';
 
+	function nettoyage($t){
+		$t = str_replace('Ã©', 'é', $t);
+		return $t;
+	}
+
+	function saut_apres_phrases($p){
+		for ($i = 0; $i < strlen($p); $i++) 
+		    if($p{$i} == ".")
+		    	if(isset($p{$i+1}) && (ctype_upper($p{$i+1}) || ctype_upper($p{$i+2}))) $p{$i} = "~";
+		$p = str_replace("~",".<br/>",$p);
+		return $p;
+	}
 
 	function save_procedure_in_aiml_form($question,$procedure){
 		
@@ -11,6 +23,7 @@
 		// on se connecte à notre base
 		$base = mysql_connect ('localhost', 'root', 'toor');
 		mysql_select_db ('response', $base) ;
+		mysql_query("SET NAMES UTF8");
 		
 		$aiml = array();
 
@@ -23,18 +36,18 @@
 			if(array_key_exists($key+1, $procedure)) $next_key = $key+1; else $next_key = -1;
 
 			if($key == 0){				
-				$template_init = 'Pour résoudre votre souci, j ai quelque chose a vous proposer.
-				Vous devriez '.$value['title'].'
-				=> '.addslashes($value['desc']).'
-				<think><set name="'.urlencode($question_clean).'">'.$next_key.'</set></think>';
+				$template_init = 'Pour résoudre votre souci, vous devriez '.strtolower($value['title']).'.<br/><br/>
+				  Pour ce se faire la procedure a suivre est la suivante:<br/>'.nettoyage(addslashes($value['desc'])).'
+				<br/><br/>Dites moi ci cela résout votre probleme.<think><set name="'.urlencode($question_clean).'">'.$next_key.'</set></think>';
 			}
 			else{ 
 				$template_still_not .= '
 					<li name="'.urlencode($question_clean).'" value="'.$key.'">
-						Ok. 
-						'.addslashes($value['desc']).'
+						Ok. J ai peut etre une autre solution pour vous :<br/>
+						'.nettoyage(addslashes($value['title'])).'<br/><br/>
+						'.nettoyage(addslashes($value['desc'])).'
 						Essayez cela, si vous avez encore des soucis dites moi.
-	                    <think><set name="'.urlencode($question_clean).'">'.$next_key.'</set></think>
+	                    <br/><br/>Dites moi ci cela résout votre probleme.<think><set name="'.urlencode($question_clean).'">'.$next_key.'</set></think>
 	                </li>
 	            ';
 
@@ -42,7 +55,7 @@
 	            	$template_still_not .= '
 					<li name="'.urlencode($question_clean).'" value="'.$next_key.'">
 						Je suis à court d idée...contactez le fabricant de votre ordinateur ou l’assistance technique pour obtenir une assistance.
-            			 
+            			<think><set name="topic">mode_attente</set></think>
 	                </li>
 	            ';
 			}
@@ -83,7 +96,7 @@
 			$i = -1;
 			foreach($html->find('div.collapse') as $article) {  
 			    $i++;
-			    $procedure[$i]['desc'] = $article->plaintext;
+			    $procedure[$i]['desc'] = saut_apres_phrases($article->plaintext);
 			    
 			   
 			}  
@@ -93,7 +106,7 @@
 			foreach($html->find('div.procedure') as $article) {
 				if($article->find('ol.ordered_dec', 0)->plaintext != null){
 					$item['title']     = $article->find('h3.title_procedure', 0)->plaintext;
-				    $item['desc']     = $article->find('ol.ordered_dec', 0)->plaintext;
+				    $item['desc']     = saut_apres_phrases($article->find('ol.ordered_dec', 0)->plaintext);
 				    $procedure[] = $item;
 				}  					
 				    
@@ -103,7 +116,7 @@
 
 		return $procedure;
 
-	} 
+	}  
 	$useless_words = array("ai-","est-","a-","j-ai-","j-","le-","la-","un-",-"une-","mon-","ma-",
 		"probleme-","souci-","avec-","ne-","d-");
 

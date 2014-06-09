@@ -42,17 +42,16 @@
             <category><pattern>* tout</pattern><template><srai>ce sera tout</srai></template></category> 
         </category>
     </topic>
-    <category>  <pattern>probleme *</pattern>  <template><srai>probleme</srai></template>   </category>
+    <category>  <pattern>probleme *</pattern>  <template><srai>panne</srai></template>   </category>
 
-    <category>     <pattern>probleme *</pattern>  <template><srai>probleme</srai></template>   </category>
+    <category>     <pattern>probleme *</pattern>  <template><srai>panne</srai></template>   </category>
 
-    <category>       <pattern>* probleme *</pattern> <template><srai>probleme</srai></template>   </category>
+    <category>       <pattern>* probleme *</pattern> <template><srai>panne</srai></template>   </category>
 
-    <category>       <pattern>* souci</pattern>   <template><srai>probleme</srai></template>   </category> 
+    <category>       <pattern>* souci</pattern>   <template><srai>panne</srai></template>   </category> 
 
-    <category>       <pattern>souci *</pattern> <template><srai>probleme</srai></template>  </category> 
-
-    <category>    <pattern>souci</pattern>    <template><srai>probleme</srai></template>   </category> 
+    <category>       <pattern>souci *</pattern> <template><srai>panne</srai></template>  </category> 
+    <category>    <pattern>souci</pattern>    <template><srai>panne</srai></template>   </category> 
 
     <category><pattern>* toujours pas</pattern><template><srai>toujours pas</srai></template></category>        
     <category><pattern>* toujours pas *</pattern><template><srai>toujours pas</srai></template></category>      

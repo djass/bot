@@ -197,60 +197,7 @@
 <!-- Fin description probleme -->
 
 <!-- Debut question autres problemes -->
-    <category>
-        <pattern>résolut</pattern>        
-        <that>* faites *</that>
-        <template>
-            <random>
-                <li>Super,ravi d avoir pu vous aider! Autres choses?</li>
-                <li>Parfait alors! Autres choses?</li>
-            </random>
-            <srai>requete</srai>
-        </template>
-    </category>
-
-
-    <category>
-        <pattern>* est réglé *</pattern>
-        <template><srai>résolut</srai></template>
-    </category>
-
-    <category>
-        <pattern>* est réparé *</pattern>
-        <template><srai>résolut</srai></template>
-    </category>
-
-    <category>
-        <pattern>* est ok</pattern>
-        <template><srai>résolut</srai></template>
-    </category>
-
-    <category>
-        <pattern>* est bon</pattern>
-        <template><srai>résolut</srai></template>
-    </category>
-
-   
-
-    <category>
-        <pattern>* pas réglé *</pattern>
-        <template><srai>résolut</srai></template>
-    </category>
-
-    <category>
-        <pattern>* pas réparé *</pattern>
-        <template><srai>résolut</srai></template>
-    </category>
-
-    <category>
-        <pattern>* pas ok</pattern>
-        <template><srai>résolut</srai></template>
-    </category>
-
-    <category>
-        <pattern>* pas bon</pattern>
-        <template><srai>résolut</srai></template>
-    </category>
+    
 
 <!-- Fin question autres problemes -->
 
@@ -286,6 +233,11 @@
 
     <category>
         <pattern>oui *</pattern>
+        <template><srai>oui</srai></template>
+    </category>
+
+    <category>
+        <pattern>probleme</pattern>
         <template><srai>oui</srai></template>
     </category>
 <!-- Fin réponse autres problemes -->

@@ -36,17 +36,7 @@
         </template> 
     </category>
 
-    <category>
-        <pattern>panne</pattern> 
-        <template>
-            <random>
-                <li>Oui, quel est-il?</li>
-                <li>Allez y, dites moi.</li>
-                <li>Je vous ecoute.</li>
-            </random>
-            <think><set name="topic">mode_resol_panne</set></think>
-        </template> 
-    </category>
+    
  
 
     <category>        
