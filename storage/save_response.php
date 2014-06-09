@@ -1,10 +1,13 @@
 <?php 
-	ini_set('display_errors', 1);
+	//ini_set('display_errors', 1);
 
 	include 'simple_html_dom.php';
 
 
 	function save_procedure_in_aiml_form($question,$procedure){
+		
+		$question_clean = $question['clean'];
+		$question_en_clair = $question['clair'];
 		// on se connecte à notre base
 		$base = mysql_connect ('localhost', 'root', 'toor');
 		mysql_select_db ('response', $base) ;
@@ -17,19 +20,29 @@
 
 		foreach ($procedure as $key => $value) {
 
-			if(array_key_exists($key+1, $procedure)) $next_key = $key+1; else $next_key = null;
+			if(array_key_exists($key+1, $procedure)) $next_key = $key+1; else $next_key = -1;
 
 			if($key == 0){				
 				$template_init = 'Pour résoudre votre souci, j ai quelque chose a vous proposer.
 				Vous devriez '.$value['title'].'
-				=> '.$value['desc'].'
-				<think><set name="'.urlencode($question).'">'.$next_key.'</set></think>';
+				=> '.addslashes($value['desc']).'
+				<think><set name="'.urlencode($question_clean).'">'.$next_key.'</set></think>';
 			}
 			else{ 
 				$template_still_not .= '
-					<li name="'.urlencode($question).'" value="'.$key.'">
-						'.$value['desc'].'
-	                    <think><set name="'.urlencode($question).'">'.$next_key.'</set></think>
+					<li name="'.urlencode($question_clean).'" value="'.$key.'">
+						Ok. 
+						'.addslashes($value['desc']).'
+						Essayez cela, si vous avez encore des soucis dites moi.
+	                    <think><set name="'.urlencode($question_clean).'">'.$next_key.'</set></think>
+	                </li>
+	            ';
+
+	            if($next_key == -1)
+	            	$template_still_not .= '
+					<li name="'.urlencode($question_clean).'" value="'.$next_key.'">
+						Je suis à court d idée...contactez le fabricant de votre ordinateur ou l’assistance technique pour obtenir une assistance.
+            			 
 	                </li>
 	            ';
 			}
@@ -39,7 +52,7 @@
 		if(!is_null($template_init)){ 
 			// lancement de la requete
 			$sql = "INSERT INTO `bot_hermione`.`aiml` (`id`, `bot_id`, `aiml`, `pattern`, `thatpattern`, `template`, `topic`, `filename`) 
-			VALUES (NULL, '1', '', '$question', '', '$template_init', 'mode_resol_panne', 'from_internet');
+			VALUES (NULL, '1', '', '$question_en_clair', '', '$template_init', 'mode_resol_panne', 'from_internet');
 			";  
 			mysql_query ($sql) or die ('Erreur SQL !'.$sql.'<br />'.mysql_error());	mysql_close();
 		}
@@ -56,28 +69,56 @@
 	}
 
 	function get_procedure_from_microsoft($url){
+		$procedure = array();
 		$html = file_get_html($url);
-
-		// Find all article blocks
-		echo count($html->find('div.procedure'))." procedures<br/>";
-		foreach($html->find('div.procedure') as $article) {  
-		    $item['title']     = $article->find('h3.title_procedure', 0)->plaintext;
-		    $item['desc']     = $article->find('ol.ordered_dec', 0)->plaintext; 
-		    $procedure[] = $item;
+		$a = current($html->find('a.link_expandAll'));
+		 
+		if(is_object($a)){
+			foreach($html->find('h4.title_section') as $article) {  
+			    $item['title']     = $article->plaintext;
+			   	$item['desc']  = null;
+			    $procedure[] = $item;
+			} 
+			
+			$i = -1;
+			foreach($html->find('div.collapse') as $article) {  
+			    $i++;
+			    $procedure[$i]['desc'] = $article->plaintext;
+			    
+			   
+			}  
+		}else{
+			// Find all article blocks
+			//echo count($html->find('div.procedure'));
+			foreach($html->find('div.procedure') as $article) {
+				if($article->find('ol.ordered_dec', 0)->plaintext != null){
+					$item['title']     = $article->find('h3.title_procedure', 0)->plaintext;
+				    $item['desc']     = $article->find('ol.ordered_dec', 0)->plaintext;
+				    $procedure[] = $item;
+				}  					
+				    
+				 
+			}
 		}
+
 		return $procedure;
+
 	} 
+	$useless_words = array("ai-","est-","a-","j-ai-","j-","le-","la-","un-",-"une-","mon-","ma-",
+		"probleme-","souci-","avec-","ne-","d-");
 
 	$var = explode('|', $_GET['v']);
 	$url = $var[1];
-	$question = $var[0];
-	 
-
+	$question_en_clair = str_replace("-"," ", $var[0]);
+	$question_clean = str_replace($useless_words, array(""), $var[0]);
+	$question = array("clair"=>$question_en_clair,"clean"=>$question_clean);
 	$procedure = get_procedure_from_microsoft($url);
-	 
-	echo "<pre>";
-		print_r($procedure);
-	echo "</pre>";
+	//echo "<pre>";var_dump($procedure);echo "</pre>";
+	//echo "(".$question['clair'].") ";
+	if(empty($procedure))
+		echo "Je n'ai rien trouvé. Pouvez vous reformuler votre probleme s'il vous plaît?";
+	else
+		echo "J'ai terminé mes petites recherches :)";
 	save_procedure_in_aiml_form($question,$procedure);
 	
 ?>
