@@ -13,13 +13,30 @@
         </template> 
     </category>
 
+    <category>
+        <pattern>panne * ?</pattern> 
+        <template>
+            <think><set name="topic">mode_resol_panne</set></think>
+            <srai><star index="1"/></srai>
+        </template> 
+    </category>
+
+
+    <category>
+        <pattern>* panne * ?</pattern> 
+        <template>
+            <think><set name="topic">mode_resol_panne</set></think>
+            <srai><star index="1"/> <star index="2"/></srai>
+        </template> 
+    </category>
+
     <topic name="mode_resol_panne">
         <category>          
             <pattern>*</pattern>  
             <template>
                 <random>
-                    <li>Ok, je s'est la 1ere fois que je suis confronté à ce type de problème. Je vais rapidement voir sur internet si je peux vous aide...</li>
-                    <li>Je n'ai jamais recontré ce genre de problème, juste une minute, je vais demander à mon amis google...</li>
+                    <li>Ok, je s'est la 1ere fois que je suis confronté à ce type de problème. Je vais rapidement voir sur internet si je peux vous aider ...</li>
+                    <li>Je n'ai jamais recontré ce genre de problème, juste une minute, je vais demander à mon amis google ...</li>
                 </random> 
                 <script type="text/javascript"> 
                     $( document ).ready(function() { 
@@ -80,9 +97,9 @@
         <category><pattern>* c est réparé *</pattern>  <template><srai>résolut</srai></template></category>
         <category><pattern>* c est ok</pattern><template><srai>résolut</srai></template></category>
         <category><pattern>* c est bon</pattern><template><srai>résolut</srai></template></category>
-        <category><pattern>* pas *</pattern><template><srai>toujours pas</srai></template></category>
-        <category><pattern>* pas</pattern><template><srai>toujours pas</srai></template></category>
-        <category><pattern>pas *</pattern><template><srai>toujours pas</srai></template></category>
+        <category><pattern>* non *</pattern><template><srai>toujours pas</srai></template></category>
+        <category><pattern>* non</pattern><template><srai>toujours pas</srai></template></category>
+        <category><pattern>non *</pattern><template><srai>toujours pas</srai></template></category>
         <category><pattern>* merci *</pattern><template><srai>merci</srai></template></category>
         <category><pattern>merci *</pattern><template><srai>merci</srai></template></category>
         <category><pattern>* merci</pattern><template><srai>merci</srai></template></category>
