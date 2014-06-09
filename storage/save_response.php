@@ -29,12 +29,14 @@
 			$sql = "INSERT INTO `bot_hermione`.`aiml` (`id`, `bot_id`, `aiml`, `pattern`, `thatpattern`, `template`, `topic`, `filename`) 
 				VALUES (NULL, '1', '', '$question_en_clair', '', 'Je n ai rien trouvé concernant ce problème, ni sur internet, ni dans mes connaissances, je vous conseille donc de consulter un humain ...', 'mode_resol_panne', 'from_internet');
 				";  
-			mysql_query ($sql) or die ('Erreur SQL !'.$sql.'<br />'.mysql_error());	mysql_close();
+			mysql_query ($sql) or die ('Erreur SQL !'.$sql.'<br />'.mysql_error());	 
 			
 			$sql = "INSERT INTO `bot_hermione`.`aiml` (`id`, `bot_id`, `aiml`, `pattern`, `thatpattern`, `template`, `topic`, `filename`) 
 				VALUES (NULL, '1', '', '$question_en_clair', '', 'Je n ai rien trouvé concernant ce problème, ni sur internet, ni dans mes connaissances, je vous conseille donc de consulter un humain ...', '', 'from_internet');
 				";  
-			mysql_query ($sql) or die ('Erreur SQL !'.$sql.'<br />'.mysql_error());	mysql_close();
+			mysql_query ($sql) or die ('Erreur SQL !'.$sql.'<br />'.mysql_error());	
+
+			 
 		}
 		else
 		{ 
@@ -83,28 +85,32 @@
 				$sql = "INSERT INTO `bot_hermione`.`aiml` (`id`, `bot_id`, `aiml`, `pattern`, `thatpattern`, `template`, `topic`, `filename`) 
 				VALUES (NULL, '1', '', '$question_en_clair', '', '$template_init', 'mode_resol_panne', 'from_internet');
 				";  
-				mysql_query ($sql) or die ('Erreur SQL !'.$sql.'<br />'.mysql_error());	mysql_close();
+				mysql_query ($sql) or die ('Erreur SQL !'.$sql.'<br />'.mysql_error());	 
 
 				// en mode resolution
 				$sql = "INSERT INTO `bot_hermione`.`aiml` (`id`, `bot_id`, `aiml`, `pattern`, `thatpattern`, `template`, `topic`, `filename`) 
 				VALUES (NULL, '1', '', '$question_en_clair', '', '$template_init', '', 'from_internet');
 				";  
-				mysql_query ($sql) or die ('Erreur SQL !'.$sql.'<br />'.mysql_error());	mysql_close();
+				mysql_query ($sql) or die ('Erreur SQL !'.$sql.'<br />'.mysql_error());	
+
 			}
 	
-			if(!is_null($template_init)){   
+			if(!is_null($template_still_not)){   
 				$sql = "INSERT INTO `bot_hermione`.`aiml` (`id`, `bot_id`, `aiml`, `pattern`, `thatpattern`, `template`, `topic`, `filename`) 
 				VALUES (NULL, '1', '', 'toujours pas', '', '<condition>$template_still_not</condition>', '', 'from_internet');
 				";  
-				mysql_query ($sql) or die ('Erreur SQL !'.$sql.'<br />'.mysql_error());	mysql_close();
+				mysql_query ($sql) or die ('Erreur SQL !'.$sql.'<br />'.mysql_error());	 
 				
 
 				$sql = "INSERT INTO `bot_hermione`.`aiml` (`id`, `bot_id`, `aiml`, `pattern`, `thatpattern`, `template`, `topic`, `filename`) 
 				VALUES (NULL, '1', '', 'toujours pas', '', '<condition>$template_still_not</condition>', 'mode_resol_panne', 'from_internet');
 				";  
-				mysql_query ($sql) or die ('Erreur SQL !'.$sql.'<br />'.mysql_error());	mysql_close();
+				mysql_query ($sql) or die ('Erreur SQL !'.$sql.'<br />'.mysql_error());	
+				
 			}
+			
 		}
+		mysql_close();
 	}
 
 	function get_procedure_from_microsoft($url){
@@ -160,7 +166,7 @@
 		 
 		if(empty($procedure)){
 				echo "Je n'ai rien trouvé. Pouvez vous reformuler votre probleme s'il vous plaît? <br/>
-				Peut etre trouverez vous une solution sur cette <a target='_blank' href=".$url.">page</a>.";}
+				Peut etre trouverez vous une solution sur cette <a target='_blank' href='".$url."'>page</a>.";}
 		else{
 				echo "J'ai peut etre trouvé quelque chose pour vous. :)";			
 		}

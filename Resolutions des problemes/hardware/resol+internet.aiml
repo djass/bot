@@ -35,8 +35,8 @@
             <pattern>*</pattern>  
             <template>
                 <random>
-                    <li>Ok, je s'est la 1ere fois que je suis confronté à ce type de problème. Je vais rapidement voir sur internet si je peux vous aider ...</li>
-                    <li>Je n'ai jamais recontré ce genre de problème, juste une minute, je vais demander à mon amis google ...</li>
+                    <li>Ok, c'est la 1ere fois que je suis confronté à ce type de problème. Je vais rapidement voir sur internet si je peux vous aider ...</li>
+                    <li>Je n'ai jamais recontré ce genre de problème, juste une minute, je vais demander à mon ami google ...</li>
                 </random> 
                 <script type="text/javascript"> 
                     $( document ).ready(function() { 
