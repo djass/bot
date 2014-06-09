@@ -6,15 +6,15 @@
             <pattern>*</pattern>  
             <template>
                 <random>
-                    <li>Je n'ai jamais rencontré ce probleme au paravant, je me ressource sur internet...</li>
-                    <li>Hum une minute je me ressource sur internet...</li>
+                    <li>Je ne sais pas, je regarde sur internet.</li>
+                    <li>Hum une minute, je consulte google.</li>
                 </random> 
                 <script type="text/javascript"> 
                     $( document ).ready(function() { 
                         console.log("Checking for some url ...");
                         var q_real = $('div.usersay').text();
-                        var qr = $('div.usersay').text().replace(' ','+');
-                        $('div.botsay').append('Ah ca y est! Juste un instant ...'); 
+                        var qr = $('div.usersay').text().replace(/[ ]/g,"-"); 
+                        
                         $.ajax({
                             type: "POST",
                             url: "search.php",
