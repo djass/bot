@@ -24,7 +24,7 @@
                     <li>Ah ah, celle ci elle pas mal non plus :</li>
                 </random>
 
-                <srai>blague</srai></template>
+                <srai>random-blague</srai></template>
         </category>
 
         <category>
@@ -35,15 +35,13 @@
         </category>
     </topic>
 
-    <category>
-            <pattern>Racontes une blague</pattern>
-            <template><srai>blague</srai><think><set name="topic">blague</set></think></template> 
-    </category>
+    <category><pattern>Racontes une blague</pattern><template><srai>random-blague</srai><think><set name="topic">blague</set></think></template></category>
  
 	
-	<category><pattern>* blague</pattern><template><srai>blague</srai><think><set name="topic">blague</set></think></template></category>		
-	<category><pattern>* blague *</pattern><template><srai>blague</srai><think><set name="topic">blague</set></think></template></category>		
-	<category><pattern>blague *</pattern><template><srai>blague</srai><think><set name="topic">blague</set></think></template></category>	
+	<category><pattern>* blague</pattern><template><srai>random-blague</srai><think><set name="topic">blague</set></think></template></category>		
+	<category><pattern>* blague *</pattern><template><srai>random-blague</srai><think><set name="topic">blague</set></think></template></category>		
+	<category><pattern>blague *</pattern><template><srai>random-blague</srai><think><set name="topic">blague</set></think></template></category>
+	<category><pattern>blague</pattern><template><srai>random-blague</srai><think><set name="topic">blague</set></think></template></category>	
 	
 	<category><pattern>* pas mal</pattern><template><srai>pas mal</srai><think><set name="topic">blague</set></think></template></category>		
 	<category><pattern>* pas mal *</pattern><template><srai>pas mal</srai><think><set name="topic">blague</set></think></template></category>		

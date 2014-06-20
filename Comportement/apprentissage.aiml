@@ -24,7 +24,7 @@
 	<category>
 		<pattern> comment faire pour * </pattern>
 		<template> 
-			Je ne ne sais pas.
+			Je ne ne sais pas. Donnes moi sa description (sous la forme: Saches que pour [description du problème] il faut [Solution à apprendre])
 		</template>
 	</category>
 		

@@ -110,64 +110,69 @@
 
     <category>
         <pattern>* panne</pattern>
-        <template><srai>probleme</srai></template>
+        <template><srai>requete</srai></template>
     </category>
 
     <category>
         <pattern>* panne *</pattern>
-        <template><srai>probleme</srai></template>
+        <template><srai>requete</srai></template>
     </category>
 
     <category>
         <pattern>panne *</pattern>
-        <template><srai>probleme</srai></template>
+        <template><srai>requete</srai></template>
     </category>
 
     <category>
         <pattern>* bug</pattern>
-        <template><srai>probleme</srai></template>
+        <template><srai>requete</srai></template>
     </category>
 
     <category>
         <pattern>* bug *</pattern>
-        <template><srai>probleme</srai></template>
+        <template><srai>requete</srai></template>
     </category>
 
     <category>
         <pattern>bug *</pattern>
-        <template><srai>probleme</srai></template>
+        <template><srai>requete</srai></template>
     </category>
 
     <category>
         <pattern>* souci</pattern>
-        <template><srai>probleme</srai></template>
+        <template><srai>requete</srai></template>
     </category>
 
     <category>
         <pattern>* souci *</pattern>
-        <template><srai>probleme</srai></template>
+        <template><srai>requete</srai></template>
     </category>
 
     <category>
         <pattern>souci *</pattern>
-        <template><srai>probleme</srai></template>
+        <template><srai>requete</srai></template>
     </category>
 
      
 
     <category>
         <pattern>* probleme</pattern>
-        <template><srai>probleme</srai></template>
+        <template><srai>requete</srai></template>
     </category>
 
     <category>
         <pattern>* probleme *</pattern>
-        <template><srai>probleme</srai></template>
+        <template><srai>requete</srai></template>
     </category>
 
+	<category>
+        <pattern>probleme</pattern>
+        <template><srai>requete</srai></template>
+    </category>
+	
     <category>
         <pattern>probleme *</pattern>
-        <template><srai>probleme</srai></template>
+        <template><srai>requete</srai></template>
     </category>
 
 <!-- Fin question probleme -->
@@ -216,7 +221,7 @@
         <pattern>oui</pattern>
         <that>* Autres choses?</that>
         <template>
-            <srai>probleme</srai>
+            <srai>requete</srai>
         </template>
     </category>
 
