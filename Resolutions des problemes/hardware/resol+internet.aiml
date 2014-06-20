@@ -42,28 +42,24 @@
                     $( document ).ready(function() { 
                         console.log("Checking for some url ...");
                         var q_real = $('div.usersay').text();
-                        var qr = $('div.usersay').text().replace(/[ ]/g,"-"); 
-                        
+                        var qr = $( ".usersays" ).last().text();
+                        wait();
                         $.ajax({
                             type: "POST",
                             url: "search.php",
                             data: { k: qr }
                         }).done(function(url) { 
 
-                            console.log("Url founded : "+url); 
-                            console.log("Getting data ...");
-                            $('div.botsay').load('http://localhost/Program-O-master/gui/jquery/save_response.php?v='+qr+'|'+url).text(); 
-                            console.log("Data saved.");    
-                            /*$('div.statusbot').hide(1000);*/
-
-                            
-                            /*window.setTimeout( function(){console.log("Second asking ...");$("input#say").val("panne auto");$('form').submit(); }, 2000 );
-
-                            window.setTimeout( function(){console.log("Asking for "+q_real);$("input#say").val(q_real);$('form').submit(); }, 5000 );
-                            */
-
-                            console.log("End.");
-
+                            console.log("Url founded : "+url);                                                    
+                            $.ajax({
+                                type: "POST",
+                                url: "save_response.php",
+                                data: { url: url, requete : qr }
+                                }) 
+                                .always(function(data) {
+                                    showMessage(data,"botsays");finish();
+                                });
+                            console.log("Data saved.");
                         });
                     });
                 </script>

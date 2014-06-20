@@ -153,11 +153,11 @@
 	}  
 	$useless_words = array("peux-","tu-","ai-","est-","a-","jai-","j-","le-","la-","un-","une-","mon-","ma-","mes-",
 		"probleme-","souci-","avec-","ne-","d-","de-","des-","les-","avec-","m'aider","d'aide");
-
-	$var = explode('|', $_GET['v']);
-	$url = $var[1];
-	$question_en_clair = str_replace("-"," ", $var[0]);
-	$question_clean = str_replace($useless_words, array(""), $var[0]);
+ 
+	$url = $_POST['url'];
+	$qr = $_POST['requete']; 
+	$question_en_clair = str_replace("-"," ", $qr);
+	$question_clean = str_replace($useless_words, array(""), $qr);
 	$question = array("clair"=>$question_en_clair,"clean"=>$question_clean);
 	//echo "<pre>";var_dump($procedure);echo "</pre>";
 	//echo "(".$question['clair'].") ";

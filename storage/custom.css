@@ -1,0 +1,62 @@
+body{
+    background-image: url('http://localhost/Test/chatbot/london-england-united-kingdom-city-night-bokeh-hd-wallpaper.jpg');
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-position:center;
+  }
+  div.clear{
+    clear: both;
+  }
+  div.botsays{
+    overflow: auto; 
+    color: green;
+    font-weight: bold;
+    border:5px solid orange;
+    padding: 5px;
+    float: right;
+    max-width: 60%;
+    margin:10px 0px 10px 0;
+    background: white;
+    border-radius: 17px;
+  }
+  div.usersays{
+    overflow: auto; 
+    color: green;
+    font-weight: bold;
+    border:5px solid orange;
+    padding: 5px;
+    float: left;
+    margin:10px 0px 10px 0;
+    max-width: 60%;
+    background: white;
+    border-radius: 17px;
+  }
+
+  div.nameusersays{
+    float: left;
+    color:black;
+    font-weight: bold;
+    padding-left: 13px;
+  }
+  div.namebotsays{
+    float: right;
+    color:black;
+    font-weight: bold;
+    padding-right: 13px;
+  }
+
+  div#container{
+    padding-bottom: 10%;
+  }
+  form{
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    padding: 0px 0px 5px 0px;
+  }
+
+  img.wait{
+    float: right;
+  }

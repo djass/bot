@@ -43,7 +43,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
   <head>
-    <link rel="stylesheet" type="text/css" href="main.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="custom.css" media="all" />
     <link rel="icon" href="./favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -51,138 +52,54 @@
     <meta name="Description" content="A Free Open Source AIML PHP MySQL Chatbot called Program-O. Version2" />
     <meta name="keywords" content="Open Source, AIML, PHP, MySQL, Chatbot, Program-O, Version2" />
     <meta name="keywords" content="Open Source, AIML, PHP, MySQL, Chatbot, Program-O, Version2" />
-    <style type="text/css">
-      #typed-cursor{
-        opacity: 1;
-        font-weight: 100;
-        // add prefixes
-        animation: blink 0.7s infinite;
-      }
-
-      @-keyframes blink{
-        0% { opacity:1; }
-        50% { opacity:0; }
-        100% { opacity:1; }
-      }
-      h3 {
-        text-align: center;
-      }
-      hr {
-        width: 80%;
-        color: green;
-        margin-left: 0;
-      }
-
-      .user_name {
-        color: rgb(16, 45, 178);
-      }
-      .bot_name {
-        color: rgb(204, 0, 0);
-      }
-      #shameless_plug, #urlwarning {
-        position: absolute;
-        right: 10px;
-        bottom: 10px;
-        border: 1px solid red;
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-shadow: 2px 2px 2px 0 #808080;
-        padding: 5px;
-        border-radius: 5px;
-      }
-      #urlwarning {
-        right: auto;
-        left: 10px;
-        width: 50%;
-        font-size: large;
-        font-weight: bold;
-        background-color: white;
-      }
-      .leftside {
-        text-align: right;
-        float: left;
-        width: 48%;
-      }
-      .rightside {
-        text-align: left;
-        float: right;
-        width: 48%;
-      }
-      .centerthis {
-        width: 90%;
-      }
-      #chatdiv {
-        margin-top: 20px;
-        text-align: center;
-        width: 100%;
-      }
-
-    </style>
+ 
   </head>
-  <body>
-    <h3>Hermione</h3>
-    
-
-    <div class="centerthis">
-      <div class="rightside">
-      <div class="manspeech"><div  class="triangle-border bottom blue"> <div class="statusbot"></div> <div class="botsay">Bonjour!</div></div></div>
-      <div class="man"></div>
-      </div>
-      <div class="leftside">
-      <div class="dogspeech"><div  class="triangle-border-right bottom orange"><div class="usersay">&nbsp;</div></div></div><br />
-      <div class="dog"></div>
-      </div>
-    </div>
-    <div class="clearthis"></div>
-    <div class="centerthis">
+  <body>    
+      <div id="container"></div>
       <form method="post" name="talkform" id="talkform" action="index.php">
-        <div id="chatdiv">
-          <label for="submit">Say:</label>
-          <input type="text" name="say" id="say" size="60"/>
-          <input type="submit" name="submit" id="submit" class="submit"  value="say" />
+        <div id="chatdiv"> 
+          <input type="text" name="say" id="say" size="60"/> 
           <input type="hidden" name="convo_id" id="convo_id" value="<?php echo $convo_id;?>" />
           <input type="hidden" name="bot_id" id="bot_id" value="<?php echo $bot_id;?>" />
           <input type="hidden" name="format" id="format" value="json" />
         </div>
       </form>
-    </div>
-    <div id="shameless_plug">
-      To get your very own chatbot, visit <a href="http://www.program-o.com">program-o.com</a>!
-    </div>
-    <div id="urlwarning">Warning : </div>
     <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="typed.js"></script>
     <script type="text/javascript" >
      $(document).ready(function() {
+        showMessage = function(msg,from){
+          if(from =="usersays") name = "Vous";
+          else name = "Hermy";
+          var fullDate = new Date()
  
+          time = fullDate.getHours()+":"+fullDate.getMinutes();
+          $('#container').append('<div class="'+from+'">'+msg+'</div>');
+          $('#container').append('<div class="clear"></div>');          
+          $('#container').append('<div class="name'+from+'">'+time+' '+name+'</div>');
+          $('#container').append('<div class="clear"></div>');
+          $("html, body").animate({ scrollTop: $(document).height() }, 1000);
+        }
 
-      botsay = function(input,type){
-        if(type == "url"){ 
-          $('div.botsay').load(input).text(); 
-        }else{ 
-          $("div.botsay").typed({
-            strings: [input],
-            typeSpeed: 0
-          });
-        }        
-      }
-      // put all your jQuery goodness in here.
+        wait = function(){
+          $('#container').append('<div class="clear"></div><img class="wait" src="images/searching1.gif"/>');
+        }
+        finish = function(){
+          $('img.wait').hide();
+        }
+
         $('#talkform').submit(function(e) {
-
           e.preventDefault();
           user = $('#say').val();
-          $('.usersay').text(user);
+          showMessage(user,"usersays");
           formdata = $("#talkform").serialize();
-          $('#say').val('')
+          $('#say').val('');
           $('#say').focus();
           $.post('<?php echo $url ?>', formdata, function(data){
             var b = data.botsay;
             var usersay = data.usersay;
-            if (user != usersay) $('.usersay').text(usersay);
-            if(string.match(/\bpour/gi))
-              $('.botsay').html(b);
-            else
-              botsay(b,'msg');
+            if (user != usersay) $('.usersay').text(usersay);            
+            showMessage(b,"botsays");
           }, 'json').fail(function(xhr, textStatus, errorThrown){
             $('#urlwarning').html("Something went wrong! Error = " + errorThrown);
           });
