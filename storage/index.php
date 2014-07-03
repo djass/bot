@@ -55,6 +55,7 @@
  
   </head>
   <body>    
+      <!--<button style="position:fixed" id="auto">Auto</button>-->
       <div id="container"></div>
       <form method="post" name="talkform" id="talkform" action="index.php">
         <div id="chatdiv"> 
@@ -65,33 +66,16 @@
         </div>
       </form>
     <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
-    <script type="text/javascript" src="typed.js"></script>
+    <script type="text/javascript" src="lib.js"></script>
     <script type="text/javascript" >
      $(document).ready(function() {
-        showMessage = function(msg,from){
-          if(from =="usersays") name = "Vous";
-          else name = "Hermy";
-          var fullDate = new Date()
- 
-          time = fullDate.getHours()+":"+fullDate.getMinutes();
-          $('#container').append('<div class="'+from+'">'+msg+'</div>');
-          $('#container').append('<div class="clear"></div>');          
-          $('#container').append('<div class="name'+from+'">'+time+' '+name+'</div>');
-          $('#container').append('<div class="clear"></div>');
-          $("html, body").animate({ scrollTop: $(document).height() }, 1000);
-        }
-
-        wait = function(){
-          $('#container').append('<div class="clear"></div><img class="wait" src="images/searching1.gif"/>');
-        }
-        finish = function(){
-          $('img.wait').hide();
-        }
 
         $('#talkform').submit(function(e) {
           e.preventDefault();
           user = $('#say').val();
+
           showMessage(user,"usersays");
+           
           formdata = $("#talkform").serialize();
           $('#say').val('');
           $('#say').focus();
