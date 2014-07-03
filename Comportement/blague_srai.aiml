@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<aiml version="1">
+
+<topic name="mode_resol_panne"> 
+    
+    <category><pattern>Racontes une blague</pattern><template><srai>random-blague</srai><think><set name="topic">blague</set></think></template></category>
+ 
+</topic>
+
+    
+	
+</aiml>

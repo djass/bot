@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<aiml version="1.0"> 
+<!--author: KRIT-->
+<!--licence: Standard-->
+<!--created with: GaitoBot AIML Editor V2.1.0.34-->
+    <topic name="mode_resol_panne"> 
+        <category>
+            <pattern>* nom *</pattern>
+            <template><think><set name="topic">mode_attente</set></think><srai>nom</srai></template>
+        </category>
+
+        <category>
+            <pattern>* nom</pattern>
+            <template><think><set name="topic">mode_attente</set></think><srai>nom</srai></template>
+        </category>
+
+        <category>
+            <pattern>* prenom *</pattern>
+            <template><think><set name="topic">mode_attente</set></think><srai>nom</srai></template>
+        </category>
+
+        <category>
+            <pattern>* prenom</pattern>
+            <template><think><set name="topic">mode_attente</set></think><srai>nom</srai></template>
+        </category>
+
+        <category>
+            <pattern>* nomme *</pattern>
+            <template><think><set name="topic">mode_attente</set></think><srai>nom</srai></template>
+        </category> 
+
+        <category>
+            <pattern>* nomme</pattern>
+            <template><think><set name="topic">mode_attente</set></think><srai>nom</srai></template>
+        </category> 
+
+        <category>
+            <pattern>* tapelles*</pattern>
+            <template><think><set name="topic">mode_attente</set></think><srai>nom</srai></template>
+        </category> 
+
+        <category> 
+            <pattern>dou viens tu?</pattern> 
+            <template> <think><set name="topic">dou viens tu?</set></think> </template>
+        </category> 
+
+        <category> 
+            <pattern>qui sont tes créateurs?</pattern> 
+            <template> 
+                <think><set name="topic">mode_attente</set></think> <srai>qui sont tes créateurs?</srai> 
+            </template>
+        </category> 
+    </topic>
+   
+</aiml>

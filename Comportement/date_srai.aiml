@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<aiml version="1.0"> 
+
+	<topic name="mode_resol_panne"> 
+		<category>
+	        <pattern>* est * heure *</pattern>
+	        <template><think><set name="topic">mode_attente</set></think><srai>heure</srai></template>
+	    </category>
+
+	     <category>
+	        <pattern>quelle heure est il</pattern>
+	        <template><think><set name="topic">mode_attente</set></think><srai>heure</srai></template>
+	    </category>
+
+	     <category>
+	        <pattern>il est quelle heure</pattern>
+	        <template><think><set name="topic">mode_attente</set></think><srai>heure</srai></template>
+	    </category>
+
+	     <category>
+	        <pattern>tu as lheure</pattern>
+	        <template><think><set name="topic">mode_attente</set></think><srai>heure</srai></template>
+	    </category>
+
+	     <category>
+	        <pattern>as tu lheure</pattern>
+	        <template><think><set name="topic">mode_attente</set></think><srai>heure</srai></template>
+	    </category>
+
+	     <category>
+	        <pattern>on est quel jour</pattern>
+	        <template><think><set name="topic">mode_attente</set></think><srai>date</srai></template>
+	    </category>
+
+	    <category>
+	        <pattern>* heure * est *</pattern>
+	        <template><think><set name="topic">mode_attente</set></think><srai>heure</srai></template>
+	    </category> 
+
+	    <category>
+	        <pattern>* jour * aujourdhui *</pattern>
+	        <template><think><set name="topic">mode_attente</set></think><srai>heure</srai></template>
+	    </category>
+
+	    <category>
+	        <pattern>* aujourdhui * jour *</pattern>
+	        <template><think><set name="topic">mode_attente</set></think><srai>heure</srai></template>
+	    </category> 
+	    <category>
+	        <pattern>* date * aujourdhui *</pattern>
+	        <template><think><set name="topic">mode_attente</set></think><srai>heure</srai></template>
+	    </category>
+
+	    <category>
+	        <pattern>* aujourdhui * date *</pattern>
+	        <template><think><set name="topic">mode_attente</set></think><srai>heure</srai></template>
+	    </category> 
+
+
+	    <category><pattern>* date *</pattern><template><think><set name="topic">mode_attente</set></think><srai>date</srai></template></category>
+	    <category><pattern>* date</pattern><template><think><set name="topic">mode_attente</set></think><srai>date</srai></template></category>
+	    <category><pattern>date *</pattern><template><think><set name="topic">mode_attente</set></think><srai>date</srai></template></category>
+	    <category><pattern>date</pattern><template><think><set name="topic">mode_attente</set></think><srai>date</srai></template></category>
+
+	    <category><pattern>* heure *</pattern><template><think><set name="topic">mode_attente</set></think><srai>heure</srai></template></category>
+	    <category><pattern>* heure</pattern><template><think><set name="topic">mode_attente</set></think><srai>heure</srai></template></category>
+	    <category><pattern>heure *</pattern><template><think><set name="topic">mode_attente</set></think><srai>heure</srai></template></category>
+	    <category><pattern>heure</pattern><template><think><set name="topic">mode_attente</set></think><srai>heure</srai></template></category>
+	</topic>
+</aiml>

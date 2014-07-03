@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<aiml version="1.0">
+
+
+ <topic name="mode_resol_panne"> 
+		<category>
+			<pattern>
+				q : * obj : * reponse : *
+			</pattern>
+			<template>
+				 <think><set name="topic">mode_attente</set></think>
+				 <srai>q : * obj : * reponse : *</srai>
+			</template>
+		</category>
+	 
+
+		<category>
+			<pattern> comment faire pour * </pattern>
+			<template> 
+				 <think><set name="topic">mode_attente</set></think>
+				 <srai> comment faire pour * </srai>
+			</template>
+		</category>
+			
+
+		<category>
+			<pattern>Saches que pour * il faut * </pattern>
+			<template> 
+				<think><set name="topic">mode_attente</set></think>
+				 <srai>Saches que pour * il faut * </srai>
+			</template>
+		</category>
+	</topic>
+	
+</aiml>

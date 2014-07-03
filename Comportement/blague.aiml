@@ -35,21 +35,6 @@
         </category>
     </topic>
 
-    <category><pattern>Racontes une blague</pattern><template><srai>random-blague</srai><think><set name="topic">blague</set></think></template></category>
- 
-	
-	<category><pattern>* blague</pattern><template><srai>random-blague</srai><think><set name="topic">blague</set></think></template></category>		
-	<category><pattern>* blague *</pattern><template><srai>random-blague</srai><think><set name="topic">blague</set></think></template></category>		
-	<category><pattern>blague *</pattern><template><srai>random-blague</srai><think><set name="topic">blague</set></think></template></category>
-	<category><pattern>blague</pattern><template><srai>random-blague</srai><think><set name="topic">blague</set></think></template></category>	
-	
-	<category><pattern>* pas mal</pattern><template><srai>pas mal</srai><think><set name="topic">blague</set></think></template></category>		
-	<category><pattern>* pas mal *</pattern><template><srai>pas mal</srai><think><set name="topic">blague</set></think></template></category>		
-	<category><pattern>pas mal *</pattern><template><srai>pas mal</srai><think><set name="topic">blague</set></think></template></category>	
-	<category><pattern>* hahaha*</pattern><template><srai>pas mal</srai><think><set name="topic">blague</set></think></template></category>
-	
-	<category><pattern>* stop</pattern><template><srai>stop</srai><think><set name="topic">blague</set></think></template></category>		
-	<category><pattern>* stop *</pattern><template><srai>stop</srai><think><set name="topic">blague</set></think></template></category>		
-	<category><pattern>stop *</pattern><template><srai>stop</srai><think><set name="topic">blague</set></think></template></category>
+    
 	
 </aiml>

@@ -16,7 +16,7 @@
                         console.log("Checking for some url ...");
                         var q_real = $("div.usersay").text();
                         var qr = $( ".usersays" ).last().text();
-                         
+                        wait();
                         $.ajax({
                             type: "POST",
                             url: "search.php",
@@ -30,9 +30,14 @@
                                 data: { url: url, requete : qr }
                                 }) 
                                 .always(function(data) {
-                                    showMessage(data,"botsays");finish();
+                                    showMessage(data,"botsays");                                    
+                                     
+                                    setTimeout(relaunchquestion, 1000);
+                                    
+                                    finish();
                                 });
                             console.log("Data saved.");
+                           
                         });
                     });
                 </script>

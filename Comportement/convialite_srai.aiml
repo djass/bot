@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<aiml version="1.0">
+
+    <topic name="mode_resol_panne"> 
+
+        <category>
+            <pattern>merci</pattern> 
+            <template>
+                <think><set name="topic">mode_attente</set></think>
+                <srai>merci</srai>
+            </template>
+        </category>
+
+        <category>
+            <pattern>au revoir</pattern> 
+            <template>
+                <think><set name="topic">mode_attente</set></think>
+                <srai>au revoir</srai>
+            </template>
+        </category>
+        
+    </topic>
+
+</aiml>
