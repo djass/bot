@@ -20,12 +20,12 @@
     </category>
 
      <category>
-        <pattern>tu as l\'heure</pattern>
+        <pattern>tu as lheure</pattern>
         <template><srai>heure</srai></template>
     </category>
 
      <category>
-        <pattern>as tu l\'heure</pattern>
+        <pattern>as tu lheure</pattern>
         <template><srai>heure</srai></template>
     </category>
 
@@ -73,7 +73,7 @@
 <pattern>heure</pattern> 
     <template> 
         <random>
-            <li>D'après ma montre, il est </li>
+            <li>Daprès ma montre, il est </li>
             <li>La il est </li>
             <li>Oui, il est exactement </li>
         </random>
@@ -82,7 +82,7 @@
             var now = new Date();
             var heure   = now.getHours();
             var minute  = now.getMinutes(); 
-            $('div.botsay').append(heure+" heure "+minute+".");
+            $(div.botsay).append(heure+" heure "+minute+".");
         });
         </script>
     </template>
@@ -94,7 +94,7 @@
 <pattern>date</pattern> 
     <template> 
         <random>
-            <li>D'après mon calendrier, on est le </li>
+            <li>Daprès mon calendrier, on est le </li>
             <li>Aujourdhui on est le </li>
             <li>Et bien, on est le </li>
         </random>
@@ -144,7 +144,7 @@
                      m = "Decembre";
                      break;
             }
-            $('div.botsay').append(jour+ " "+m+ " "+annee+".");
+            $(div.botsay).append(jour+ " "+m+ " "+annee+".");
         });
         </script>
     </template>

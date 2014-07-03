@@ -41,7 +41,7 @@
                 <li name="etape" value="internet_phy">
                     , super. En général c est toujours un souci de câble ;).
                 </li>
-                <li name="etape" value="internet_fin">Ben heureusement parceque la je n'avais plus d'option!!</li> 
+                <li name="etape" value="internet_fin">Ben heureusement parceque la je navais plus doption!!</li> 
             </condition>
         </template>
     </category>

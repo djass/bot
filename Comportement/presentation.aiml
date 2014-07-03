@@ -34,7 +34,7 @@
     </category> 
 
     <category>
-        <pattern>* t\'apelles*</pattern>
+        <pattern>* tapelles*</pattern>
         <template><srai>nom</srai></template>
     </category> 
 
@@ -46,7 +46,7 @@
     </category> 
 
     <category> 
-        <pattern>d\'ou viens tu?</pattern> 
+        <pattern>dou viens tu?</pattern> 
         <template> 
              Je viens de la réflexion de mes créateurs  
         </template>

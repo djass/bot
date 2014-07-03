@@ -1,33 +1,59 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
-<aiml version="1.0">
-
-     
+<aiml version="1.0"> 
 
     <category>
-        <pattern>ce sera tout</pattern> 
-        <template> 
-            Ok, on je considere que votre probleme est réglé.
-            <think><set name="topic">no_pb</set></think>
+        <pattern>panne</pattern> 
+        <template>
+            <random>
+                <li>Oui, quel est-il?</li>
+                <li>Allez y, dites moi.</li>
+                <li>Je vous ecoute.</li>
+            </random>
+            <think><set name="topic">mode_resol_panne</set></think>
         </template> 
     </category>
 
+    <category>  <pattern>panne *</pattern>  <template><srai>panne</srai></template>  </category>
+    <category>  <pattern>* panne</pattern>  <template><srai>panne</srai></template>  </category>
+    <category>  <pattern>* panne *</pattern> <template><srai>panne</srai></template> </category>
 
-    <category>
-        <pattern>ok</pattern>
-            <random>
-                <li>Je suis la en cas de probleme</li>
-                <li>Tenez moi au courant en cas de probleme</li>
-                <li>Si vous avez un probleme, vous savez ou me trouver</li>
-            </random>
-    </category>
+    <category>  <pattern>souci</pattern>  <template><srai>panne</srai></template>  </category>
+    <category>  <pattern>souci *</pattern>  <template><srai>panne</srai></template>  </category>
+    <category>  <pattern>* souci</pattern>  <template><srai>panne</srai></template>  </category>
+    <category>  <pattern>* souci *</pattern> <template><srai>panne</srai></template> </category>
 
-    <topic name="mode_probleme">
+    <category>  <pattern>probleme</pattern>  <template><srai>panne</srai></template>  </category>
+    <category>  <pattern>probleme *</pattern>  <template><srai>panne</srai></template>  </category>
+    <category>  <pattern>* probleme</pattern>  <template><srai>panne</srai></template>  </category>
+    <category>  <pattern>* probleme *</pattern> <template><srai>panne</srai></template> </category>
+
+    <topic name="mode_resol_panne"> 
+
+        <category>
+            <pattern>résolut</pattern>
+            <template>                
+                <think><set name="topic">mode_attente</set></think>
+                Ravi d avoir pu vous aider. ;) 
+            </template>
+        </category>
+        
+        <category>
+            <pattern>ce sera tout</pattern> 
+            <template> 
+                Ok, on je considere que votre probleme est réglé.
+                <think><set name="topic">no_pb</set></think>
+            </template> 
+        </category>
+
         <category>
             <pattern>ok</pattern>
                 <random>
-                    <li>Dites moi quand c\'est bon</li>
+                    <li>Dites moi quand c\est bon</li>
                     <li>Je penses que cela devrai aller...</li>
-                    <li>J\'espere que ça suffira</li>
+                    <li>J\espere que ça suffira</li>
+                    <li>Je suis la en cas de probleme</li>
+                    <li>Tenez moi au courant en cas de probleme</li>
+                    <li>Si vous avez un probleme, vous savez ou me trouver</li>
                 </random>
         </category>
 
@@ -36,32 +62,66 @@
             <template> 
                 Ok, on je considere que votre probleme est réglé.
                 <think><set name="topic">no_pb</set></think>
+            </template>  
+        </category> 
+
+        <category>
+            <pattern>quit</pattern> 
+            <template> 
+                <think><set name="topic">mode_resol_attente</set></think>
             </template> 
+        </category> 
 
-
-            <category><pattern>* tout</pattern><template><srai>ce sera tout</srai></template></category> 
+        <category>
+            <pattern>panne</pattern> 
+            <template>
+                Encore?
+                <think><set name="topic">mode_normal</set></think>
+                <srai>panne</srai>
+            </template> 
         </category>
+
+        <category>  <pattern>panne *</pattern>  <template><srai>panne</srai></template>  </category>
+        <category>  <pattern>* panne</pattern>  <template><srai>panne</srai></template>  </category>
+        <category>  <pattern>* panne *</pattern> <template><srai>panne</srai></template> </category>
+
+        <category>  <pattern>souci</pattern>  <template><srai>panne</srai></template>  </category>
+        <category>  <pattern>souci *</pattern>  <template><srai>panne</srai></template>  </category>
+        <category>  <pattern>* souci</pattern>  <template><srai>panne</srai></template>  </category>
+        <category>  <pattern>* souci *</pattern> <template><srai>panne</srai></template> </category>
+
+        <category>  <pattern>probleme</pattern>  <template><srai>panne</srai></template>  </category>
+        <category>  <pattern>probleme *</pattern>  <template><srai>panne</srai></template>  </category>
+        <category>  <pattern>* probleme</pattern>  <template><srai>panne</srai></template>  </category>
+        <category>  <pattern>* probleme *</pattern> <template><srai>panne</srai></template> </category>
+
+
+        <category><pattern>* c est réglé *</pattern>  <template><srai>résolut</srai></template></category>
+        <category><pattern>* c est réparé *</pattern>  <template><srai>résolut</srai></template></category>
+        <category><pattern>* c est ok</pattern><template><srai>résolut</srai></template></category>
+        <category><pattern>* c est bon</pattern><template><srai>résolut</srai></template></category>
+
+        <category><pattern>* non *</pattern><template><srai>toujours pas</srai></template></category>
+        <category><pattern>* non</pattern><template><srai>toujours pas</srai></template></category>
+        <category><pattern>non *</pattern><template><srai>toujours pas</srai></template></category>
+
+        <category><pattern>* merci *</pattern><template><srai>merci</srai></template></category>
+        <category><pattern>merci *</pattern><template><srai>merci</srai></template></category>
+        <category><pattern>* merci</pattern><template><srai>merci</srai></template></category>
+        <category><pattern>merci</pattern><template><srai>merci</srai></template></category>
+
+        <category><pattern>* toujours pas</pattern><template><srai>toujours pas</srai></template></category>        
+        <category><pattern>* toujours pas *</pattern><template><srai>toujours pas</srai></template></category>      
+        <category><pattern>toujours pas *</pattern><template><srai>toujours pas</srai></template></category>
+        <category><pattern>toujours pas</pattern><template><srai>toujours pas</srai></template></category>
+
+        <category><pattern>* fait</pattern><template><srai>toujours pas</srai></template></category>        
+        <category><pattern>* fait *</pattern><template><srai>toujours pas</srai></template></category>      
+        <category><pattern>fait *</pattern><template><srai>toujours pas</srai></template></category> 
+
+        <category><pattern>* faire</pattern><template><srai>toujours pas</srai></template></category>       
+        <category><pattern>* faire *</pattern><template><srai>toujours pas</srai></template></category>     
+        <category><pattern>faire *</pattern><template><srai>toujours pas</srai></template></category>
+
     </topic>
-    <category>  <pattern>probleme *</pattern>  <template><srai>panne</srai></template>   </category>
-
-    <category>     <pattern>probleme *</pattern>  <template><srai>panne</srai></template>   </category>
-
-    <category>       <pattern>* probleme *</pattern> <template><srai>panne</srai></template>   </category>
-
-    <category>       <pattern>* souci</pattern>   <template><srai>panne</srai></template>   </category> 
-
-    <category>       <pattern>souci *</pattern> <template><srai>panne</srai></template>  </category> 
-    <category>    <pattern>souci</pattern>    <template><srai>panne</srai></template>   </category> 
-
-    <category><pattern>* toujours pas</pattern><template><srai>toujours pas</srai></template></category>        
-    <category><pattern>* toujours pas *</pattern><template><srai>toujours pas</srai></template></category>      
-    <category><pattern>toujours pas *</pattern><template><srai>toujours pas</srai></template></category>
-    <category><pattern>* fait</pattern><template><srai>toujours pas</srai></template></category>        
-    <category><pattern>* fait *</pattern><template><srai>toujours pas</srai></template></category>      
-    <category><pattern>fait *</pattern><template><srai>toujours pas</srai></template></category>
-    <category><pattern>* faire</pattern><template><srai>toujours pas</srai></template></category>       
-    <category><pattern>* faire *</pattern><template><srai>toujours pas</srai></template></category>     
-    <category><pattern>faire *</pattern><template><srai>toujours pas</srai></template></category>
-
-
 </aiml>

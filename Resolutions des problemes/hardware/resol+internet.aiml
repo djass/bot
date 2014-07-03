@@ -1,49 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <aiml version="1.0"> 
 
-    <category>
-        <pattern>panne</pattern> 
-        <template>
-            <random>
-                <li>Oui, quel est-il?</li>
-                <li>Allez y, dites moi.</li>
-                <li>Je vous ecoute.</li>
-            </random>
-            <think><set name="topic">mode_resol_panne</set></think>
-        </template> 
-    </category>
-
-    <category>
-        <pattern>panne * ?</pattern> 
-        <template>
-            <think><set name="topic">mode_resol_panne</set></think>
-            <srai><star index="1"/></srai>
-        </template> 
-    </category>
-
-
-    <category>
-        <pattern>* panne * ?</pattern> 
-        <template>
-            <think><set name="topic">mode_resol_panne</set></think>
-            <srai><star index="1"/> <star index="2"/></srai>
-        </template> 
-    </category>
+   
 
     <topic name="mode_resol_panne">
         <category>          
             <pattern>*</pattern>  
             <template>
                 <random>
-                    <li>Ok, c'est la 1ere fois que je suis confronté à ce type de problème. Je vais rapidement voir sur internet si je peux vous aider ...</li>
-                    <li>Je n'ai jamais recontré ce genre de problème, juste une minute, je vais demander à mon ami google ...</li>
+                    <li>Ok, cest la 1ere fois que je suis confronté à ce type de problème. Je vais rapidement voir sur internet si je peux vous aider ...</li>
+                    <li>Je nai jamais recontré ce genre de problème, juste une minute, je vais demander à mon ami google ...</li>
                 </random> 
                 <script type="text/javascript"> 
                     $( document ).ready(function() { 
                         console.log("Checking for some url ...");
-                        var q_real = $('div.usersay').text();
+                        var q_real = $("div.usersay").text();
                         var qr = $( ".usersays" ).last().text();
-                        wait();
+                         
                         $.ajax({
                             type: "POST",
                             url: "search.php",
@@ -66,40 +39,9 @@
             </template>  
         </category>
 
-        <category>
-            <pattern>panne</pattern>
-            <template>
-                <think><set name="topic">mode_attente</set></think>
-                <srai>panne</srai>
-            </template>
-        </category>   
+        
 
-        <category>
-            <pattern>résolut</pattern>
-            <template>                
-                <think><set name="topic">mode_attente</set></think>
-                Ravi d avoir pu vous aider. ;) 
-            </template>
-        </category>
 
-        <category>
-            <pattern>quit</pattern> 
-            <template> 
-                <think><set name="topic">mode_resol_attente</set></think>
-            </template> 
-        </category> 
-
-        <category><pattern>* c est réglé *</pattern>  <template><srai>résolut</srai></template></category>
-        <category><pattern>* c est réparé *</pattern>  <template><srai>résolut</srai></template></category>
-        <category><pattern>* c est ok</pattern><template><srai>résolut</srai></template></category>
-        <category><pattern>* c est bon</pattern><template><srai>résolut</srai></template></category>
-        <category><pattern>* non *</pattern><template><srai>toujours pas</srai></template></category>
-        <category><pattern>* non</pattern><template><srai>toujours pas</srai></template></category>
-        <category><pattern>non *</pattern><template><srai>toujours pas</srai></template></category>
-        <category><pattern>* merci *</pattern><template><srai>merci</srai></template></category>
-        <category><pattern>merci *</pattern><template><srai>merci</srai></template></category>
-        <category><pattern>* merci</pattern><template><srai>merci</srai></template></category>
-        <category><pattern>merci</pattern><template><srai>merci</srai></template></category>
     </topic>
 
 </aiml> 

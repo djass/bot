@@ -9,11 +9,11 @@ body{
   }
   div.botsays{
     overflow: auto; 
-    color: green;
+    color: gray;
     font-weight: bold;
-    border:5px solid orange;
+    border:5px solid blue;
     padding: 5px;
-    float: right;
+    float: left;
     max-width: 60%;
     margin:10px 0px 10px 0;
     background: white;
@@ -21,11 +21,11 @@ body{
   }
   div.usersays{
     overflow: auto; 
-    color: green;
+    color: gray;
     font-weight: bold;
-    border:5px solid orange;
+    border:5px solid blue;
     padding: 5px;
-    float: left;
+    float: right;
     margin:10px 0px 10px 0;
     max-width: 60%;
     background: white;
@@ -33,14 +33,14 @@ body{
   }
 
   div.nameusersays{
-    float: left;
-    color:black;
+    float: right;
+    color:white;
     font-weight: bold;
     padding-left: 13px;
   }
   div.namebotsays{
-    float: right;
-    color:black;
+    float: left;
+    color:white;
     font-weight: bold;
     padding-right: 13px;
   }

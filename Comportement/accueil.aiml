@@ -7,7 +7,7 @@
     <pattern>*</pattern> 
     <template>
         <random>
-            <li>J'avoue que la je ne vous suis pas du tout la ...</li> 
+            <li>Javoue que la je ne vous suis pas du tout la ...</li> 
             <li>Je ne vois pas très bien ou vous voulez en venir ...</li> 
         </random>
     </template>
@@ -31,7 +31,7 @@
             <random>
             <li>Que puis je faire pour vous cher ami?</li>
             <li>Alors, dites moi cher ami?</li>
-            <li>Dites moi ce qu'il vous faut cher ami.</li>
+            <li>Dites moi ce quil vous faut cher ami.</li>
             </random>
         </template> 
     </category>
@@ -54,8 +54,8 @@
         <pattern>ennuie</pattern> 
         <template>
             <random>
-                <li>Si vous voulez j\'ai une blague qui vas vous faire rigoler.</li>
-                <li>J\'ai deux ou trois blagues qui pourraient vous faire rigoler.</li>
+                <li>Si vous voulez j\ai une blague qui vas vous faire rigoler.</li>
+                <li>Jai deux ou trois blagues qui pourraient vous faire rigoler.</li>
             </random>
         </template> 
     </category>  
@@ -70,9 +70,5 @@
         <that>*vous faire rigoler*</that> 
         <template><srai>requete</srai><think><set name="topic">pas_blague</set></think></template> 
     </category>
-
-    
-    <category><pattern>* ennuie</pattern><template><srai>ennuie</srai></template></category>
-    <category><pattern>* ennuie *</pattern><template><srai>ennuie</srai></template></category>
 
 </aiml>
