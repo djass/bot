@@ -48,15 +48,98 @@
     <link rel="icon" href="./favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Program O AIML PHP Chatbot</title>
+    <title>Hermione Bot</title>
     <meta name="Description" content="A Free Open Source AIML PHP MySQL Chatbot called Program-O. Version2" />
     <meta name="keywords" content="Open Source, AIML, PHP, MySQL, Chatbot, Program-O, Version2" />
     <meta name="keywords" content="Open Source, AIML, PHP, MySQL, Chatbot, Program-O, Version2" />
- 
+  </script></p>
+<script language="JavaScript"><!--
+
+var expDays = 1; // NOMBRE DE JOUR OU LE COOKIE DOIT RESTER
+
+var page = "about.html"; //ADRESSE DE LA PAGE DE VOTRE POP-UP
+var windowprops = "width=300,height=200,location=no,toolbar=no,menubar=no,scrollbars=no,resizable=yes";
+//CI-DESSUS LES DIMENSIONS DE VOTRE POP-UP
+function GetCookie (name) { 
+var arg = name + "="; 
+var alen = arg.length; 
+var clen = document.cookie.length; 
+var i = 0; 
+while (i < clen) { 
+var j = i + alen; 
+if (document.cookie.substring(i, j) == arg) 
+return getCookieVal (j); 
+i = document.cookie.indexOf(" ", i) + 1; 
+if (i == 0) break; 
+} 
+return null;
+}
+function SetCookie (name, value) { 
+var argv = SetCookie.arguments; 
+var argc = SetCookie.arguments.length; 
+var expires = (argc > 2) ? argv[2] : null; 
+var path = (argc > 3) ? argv[3] : null; 
+var domain = (argc > 4) ? argv[4] : null; 
+var secure = (argc > 5) ? argv[5] : false; 
+document.cookie = name + "=" + escape (value) + 
+((expires == null) ? "" : ("; expires=" + expires.toGMTString())) + 
+((path == null) ? "" : ("; path=" + path)) + 
+((domain == null) ? "" : ("; domain=" + domain)) + 
+((secure == true) ? "; secure" : "");
+}
+function DeleteCookie (name) { 
+var exp = new Date(); 
+exp.setTime (exp.getTime() - 1); 
+var cval = GetCookie (name); 
+document.cookie = name + "=" + cval + "; expires=" + exp.toGMTString();
+}
+var exp = new Date(); 
+exp.setTime(exp.getTime() + (expDays*24*60*60*1000));
+function amt(){
+var count = GetCookie('count')
+if(count == null) {
+SetCookie('count','1')
+return 1
+}
+else {
+var newcount = parseInt(count) + 1;
+DeleteCookie('count')
+SetCookie('count',newcount,exp)
+return count
+}
+}
+function getCookieVal(offset) {
+var endstr = document.cookie.indexOf (";", offset);
+if (endstr == -1)
+endstr = document.cookie.length;
+return unescape(document.cookie.substring(offset, endstr));
+}
+
+function checkCount() {
+var count = GetCookie('count');
+if (count == null) {
+count=1;
+SetCookie('count', count, exp);
+
+window.open(page, "", windowprops);
+
+}
+else {
+count++;
+SetCookie('count', count, exp);
+}
+}
+// End 
+// --></script>
   </head>
-  <body>    
+  <body onload="checkCount()">    
       <!--<button style="position:fixed" id="auto">Auto</button>-->
-      <div id="container"></div>
+      <div class="info">
+        <center><h2>Bot HERMIONE</h2></center>
+      </div>
+      <div id="welcome"><h3>Bonjour et bienvenue !</h3><h4>Sur la plateforme du robot Hermione, vous trouverez une solution à vos bug informatique. Parlé moi de vos probleme informatique et je tacherais de vous trouver une solution. Entrez votre question dans le champ si dessous puis tapez Entrée.</h4><CENTER><img src="images/fleche_bleue_animee_bas.gif"></CENTER></div>
+      <div id="container"> 
+      </div>
       <form method="post" name="talkform" id="talkform" action="index.php">
         <div id="chatdiv"> 
           <input type="text" name="say" id="say" size="60"/> 
@@ -64,6 +147,10 @@
           <input type="hidden" name="bot_id" id="bot_id" value="<?php echo $bot_id;?>" />
           <input type="hidden" name="format" id="format" value="json" />
         </div>
+        <center>I41 / Hugo DUPUIS et Jasmin BELLANCE - 
+        <a style="color:blue;font-style:underline;" href="about.html">Aide</a>
+
+        </center>
       </form>
     <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="lib.js"></script>
@@ -72,8 +159,7 @@
 
         $('#talkform').submit(function(e) {
           e.preventDefault();
-          user = $('#say').val();
-
+          user = $('#say').val(); 
           showMessage(user,"usersays");
            
           formdata = $("#talkform").serialize();

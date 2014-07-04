@@ -1,8 +1,9 @@
 body{
-    background-image: url('images/avocat-technologies-avancees.jpg'); 
+    background-image: url('images/minimalistic-simple-background-white-206534-1920x1200.jpg');
     background-repeat:no-repeat;
     background-attachment:fixed;
     background-position:center;
+    
   }
   div.clear{
     clear: both;
@@ -13,11 +14,13 @@ body{
     font-weight: bold;
     border:5px solid blue;
     padding: 5px;
-    float: left;
-    max-width: 60%;
-    margin:10px 0px 10px 0;
+    float: right;
+    max-width: 60%; 
     background: white;
     border-radius: 17px;
+    margin-top: 20px;
+    text-align: right;
+    padding-left: 20px;
   }
   div.usersays{
     overflow: auto; 
@@ -25,28 +28,54 @@ body{
     font-weight: bold;
     border:5px solid blue;
     padding: 5px;
-    float: right;
-    margin:10px 0px 10px 0;
+    float: left; 
     max-width: 60%;
     background: white;
     border-radius: 17px;
+    padding-right: 20px;
+    min-width: 100px;
+    margin-top: 20px;
+    text-align:left;
   }
 
+  div.partbotsays{
+    position: relative;
+    
+    float: left;
+    width: 50%;
+  }
+
+  div.partusersays{
+    position: relative;
+     
+    float: right;
+    width: 50%;
+  }
   div.nameusersays{
+    float: left;
+    color: white;
+    margin: 0px 0px 0px 15px;
+    font-weight: bold;
+    font-size: 10px;
+    font-weight: bold;
+    background: black;
+    border-bottom: 10px;
+    padding: 0px 4px;
+
+  }
+  div.namebotsays{ 
     float: right;
     color:white;
+    font-size: 10px;
     font-weight: bold;
-    padding-left: 13px;
-  }
-  div.namebotsays{
-    float: left;
-    color:white;
-    font-weight: bold;
-    padding-right: 13px;
+    background: black;
+    border-bottom: 10px;
+    padding: 0px 4px;
+    margin:0px 15px 0px 0px;
   }
 
   div#container{
-    padding-bottom: 10%;
+    padding-bottom: 20%;
   }
   form{
     bottom: 0;
@@ -58,5 +87,17 @@ body{
   }
 
   img.wait{
-    float: left;
+    float: right;
+  }
+
+  div.info{
+      background: rgb(71, 149, 221);
+  }
+
+  div.info h2{
+    color:white;
+  }
+
+  div#welcome{
+    padding: 100px;
   }
